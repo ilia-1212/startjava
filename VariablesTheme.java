@@ -34,7 +34,7 @@ public class VariablesTheme {
     float totalSummGoodsDiscount;
     float totalSummDiscount;
 
-    totalSummDiscount = (goodXCostValue * discountPrcValue/100)+(goodYCostValue * discountPrcValue/100);
+    totalSummDiscount = (goodXCostValue * discountPrcValue / 100)+(goodYCostValue * discountPrcValue / 100);
     totalSummGoodsDiscount = goodXCostValue + goodYCostValue - totalSummDiscount;
 
     System.out.println("итоговая сумма товаров со скидкой: " + String.format("%.2f",totalSummGoodsDiscount)+ "\n" +
@@ -129,9 +129,9 @@ public class VariablesTheme {
     short tensVal;
     short unitsVal;
 
-    hundredVal = (short)(mainVal/100);
-    tensVal = (short)((mainVal - (hundredVal*100))/10);
-    unitsVal = (short)((mainVal -(hundredVal*100)) - (tensVal*10));
+    hundredVal = (short)(mainVal / 100);
+    tensVal = (short)((mainVal - (hundredVal * 100)) / 10);
+    unitsVal = (short)((mainVal -(hundredVal * 100)) - (tensVal * 10));
     System.out.println("Произведение цифр числа:  "+mainVal+ " = " + (hundredVal * tensVal * unitsVal));
     System.out.println("Сумма цифр числа:  "+mainVal+ " = " + (hundredVal + tensVal + unitsVal));
 
@@ -158,9 +158,9 @@ public class VariablesTheme {
     short tens9Val;
     short units9Val;
 
-    hundred9Val = (short)(main9Val/100);
-    tens9Val = (short)((main9Val - (hundred9Val*100))/10);
-    units9Val = (short)((main9Val -(hundred9Val*100)) - (tens9Val*10));
+    hundred9Val = (short)(main9Val / 100);
+    tens9Val = (short)((main9Val - (hundred9Val * 100)) / 10);
+    units9Val = (short)((main9Val -(hundred9Val * 100)) - (tens9Val * 10));
     System.out.println("Отображение числа:  "+main9Val+ ":\n" +
                 "Сотни: " + hundred9Val + "\n"+
                 "Десятки: " + tens9Val + "\n"+
@@ -174,11 +174,10 @@ public class VariablesTheme {
     int mm10Val;
     int ss10Val;
 
-    hh10Val =  (main10Val/3600);
-    mm10Val =  (main10Val - (hh10Val*3600))/60;
-    ss10Val =  (main10Val -(hh10Val*3600)) - (mm10Val*60);
-    System.out.println("Отображение времени (с):  "+main10Val+ ":\n" +
+    hh10Val =  (main10Val / 3600);
+    mm10Val =  (main10Val - (hh10Val * 3600))/60;
+    ss10Val =  (main10Val -(hh10Val * 3600)) - (mm10Val * 60);
+    System.out.println("Отображение времени (с):  "+ main10Val + ":\n" +
                 String.format("ЧЧ:ММ:CC %1$d:%2$d:%3$d",hh10Val, mm10Val, ss10Val));
-
     }
 }
