@@ -1,1 +1,0 @@
-# startjava 2 st
