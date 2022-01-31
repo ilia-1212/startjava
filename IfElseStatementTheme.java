@@ -213,7 +213,7 @@ public class IfElseStatementTheme {
         if (isExist) {
             double p = (x + y + z) /2;
             triangleS  =(Math.sqrt(p * (p - x) * (p - y) * (p - z)));
-            System.out.println("треугольник существует: " +( isExist? "Да": "Нет") + " Площадь: "+ triangleS);
+            System.out.println("треугольник существует: " +( isExist? "Да": "Нет") + " Площадь: "+ String.format("%.3f",triangleS));
         } else {
             System.out.println("треугольник не существует");
         }
@@ -227,5 +227,26 @@ public class IfElseStatementTheme {
         //10. Подсчет количества банкнот
         System.out.println("10. Подсчет количества банкнот");
 
-  }
+    short main10Val = 567;
+    short hundred10Val;
+    short tens10Val;
+    short units10Val;
+    short bill1 = 1;
+    short bill2 = 10;
+    short bill3 = 50;
+    short countBill1;
+    short countBill2;
+    short countBill3;
+
+    hundred10Val = (short)(main10Val / 100);
+    tens10Val = (short)((main10Val - (hundred10Val * 100))/ 10);
+    units10Val = (short)((main10Val -(hundred10Val * 100)) - (tens10Val * 10));
+
+    countBill3 = (short)(hundred10Val * 100 / bill3);
+    countBill2 = (short)(tens10Val * 10 / bill2);
+    countBill1 = (short)(units10Val / bill1);
+
+    String fstr = String.format("номиналы банкнот и их требуемое количество: %1$s (%4$s), %2$s (%5$s), %3$s (%6$s) для формирование суммы: %7$s" ,bill1,bill2,bill3,countBill1,countBill2,countBill3,main10Val);
+    System.out.println(fstr);
+    }
 }
