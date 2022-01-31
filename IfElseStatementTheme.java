@@ -1,4 +1,5 @@
 public class IfElseStatementTheme {
+
     public static void main(String[] args) {
         //1. Перевод псевдокода на язык Java (это название задачи)
         System.out.println("1. Перевод псевдокода на язык Java");
@@ -7,7 +8,7 @@ public class IfElseStatementTheme {
         char sex = 'M';
         float height = 1.72f;
         String namePerson = "ILIA";
-        char firstLetterName;
+        char firstLetterName = namePerson.charAt(0);
 
         if (age > 20){
             System.out.println("уже не подросток");
@@ -16,7 +17,7 @@ public class IfElseStatementTheme {
         }
 
         if (!(sex == 'M')){
-            System.out.println("Это мальчик? Кто скажет ,ч то это деовчка , пусть первый бросит в меня камень");
+            System.out.println("Это мальчик? Кто скажет ,что это девочка , пусть первый бросит в меня камень");
         }
 
         if (height < 1.80){
@@ -25,7 +26,7 @@ public class IfElseStatementTheme {
             System.out.println("вот это шпала");
         }
 
-        firstLetterName = namePerson.charAt(0);
+        
         if (firstLetterName == 'M'){
             System.out.println("Миша ? ");
         } else if (firstLetterName == 'I') {
@@ -71,31 +72,23 @@ public class IfElseStatementTheme {
         //4. Поиск общей цифры в числах
         System.out.println("4. Поиск общей цифры в числах");
 
-        short firstData = 746;
-        short secondData = 141;
+        int firstData = 746;
+        int secondData = 141;
 
-        short hundred1Val;
-        short tens1Val;
-        short units1Val;
+        int hundredVal41 = (firstData / 100);
+        int tensVal41 = (firstData % 100 / 10);
+        int unitsVal41 = (firstData % 100 % 10);
 
-        hundred1Val = (short)(firstData/100);
-        tens1Val = (short)((firstData - (hundred1Val*100))/10);
-        units1Val = (short)((firstData -(hundred1Val*100)) - (tens1Val*10));
+        int hundredVal42 = (secondData / 100);
+        int tensVal42 = (secondData % 100 / 10);
+        int unitsVal42 = (secondData % 100 % 10);
 
-        short hundred2Val;
-        short tens2Val;
-        short units2Val;
-
-        hundred2Val = (short)(secondData/100);
-        tens2Val = (short)((secondData - (hundred2Val*100))/10);
-        units2Val = (short)((secondData -(hundred2Val*100)) - (tens2Val*10));
-
-        if (hundred1Val == hundred2Val) {
-            System.out.println("Одинаковая цифра двух чисел " +firstData + " и " + secondData + ": " + hundred1Val);
-        } else if (tens1Val == tens2Val) {
-            System.out.println("Одинаковая цифра двух чисел " +firstData + " и " + secondData + ": " + tens1Val);
-        } else if (units1Val == units2Val) {
-            System.out.println("Одинаковая цифра двух чисел " +firstData + " и " + secondData + ": " + units1Val);
+        if (hundredVal41 == hundredVal42) {
+            System.out.println("Одинаковая цифра двух чисел " +firstData + " и " + secondData + ": " + hundredVal42);
+        } else if (tensVal41 == tensVal42) {
+            System.out.println("Одинаковая цифра двух чисел " +firstData + " и " + secondData + ": " + tensVal41);
+        } else if (unitsVal41 == unitsVal42) {
+            System.out.println("Одинаковая цифра двух чисел " +firstData + " и " + secondData + ": " + unitsVal41);
         }
 
         //5. Определение буквы или символа по их коду
@@ -103,7 +96,7 @@ public class IfElseStatementTheme {
 
         char sign = '\u005A';
 
-        if (sign >='\u0030' && sign <= '\u0039') {
+        if (sign >= '\u0030' && sign <= '\u0039') {
             System.out.println("005A: число");
         } else if ((sign >='\u0041' && sign <= '\u005A') || (sign >='\u0061' && sign <= '\u007A')) {
             System.out.println("005A: буква");
@@ -114,21 +107,21 @@ public class IfElseStatementTheme {
         //6. Определение суммы вклада и начисленных банком %
         System.out.println("6. Определение суммы вклада и начисленных банком %");
 
-        float depositSum = 300_000f;
+        float deposit = 300_000f;
         float depositPrc;
         float prcRate;
         float totalPrcSum;
 
-        if (depositSum < 100_000){
+        if (deposit < 100_000){
             prcRate = 5f;
-        } else if (depositSum >= 100_000 && depositSum <= 300_000) {
+        } else if (deposit >= 100_000 && deposit <= 300_000) {
             prcRate = 7f;
         } else prcRate = 10f;
 
-        depositPrc = prcRate*depositSum/100;
-        totalPrcSum = (1 + (prcRate / 100)) * depositSum;
+        depositPrc = prcRate * deposit / 100;
+        totalPrcSum = (1 + (prcRate / 100)) * deposit;
 
-        System.out.println("сумму вклада: " + depositSum + "\n"+
+        System.out.println("сумму вклада: " + deposit + "\n"+
                 "начисленный %: " + depositPrc + "\n"+
                 "итоговая сумму с %: " + totalPrcSum
                 );
@@ -218,35 +211,26 @@ public class IfElseStatementTheme {
             System.out.println("треугольник не существует");
         }
 
-     System.out.println("        / \\");
-     System.out.println("       /   \\");
-     System.out.println("      /     \\");
-     System.out.println("     /       \\");
-     System.out.println("    /_________\\");
+        System.out.println("        / \\");
+        System.out.println("       /   \\");
+        System.out.println("      /     \\");
+        System.out.println("     /       \\");
+        System.out.println("    /_________\\");
 
         //10. Подсчет количества банкнот
         System.out.println("10. Подсчет количества банкнот");
 
-    short main10Val = 567;
-    short hundred10Val;
-    short tens10Val;
-    short units10Val;
-    short bill1 = 1;
-    short bill2 = 10;
-    short bill3 = 50;
-    short countBill1;
-    short countBill2;
-    short countBill3;
+        int mainVal10 = 567;
+        int bill1 = 1;
+        int bill2 = 10;
+        int bill3 = 50;
+        int hundredVal10 = (mainVal10 / bill3);
+        int tensVal10 = (mainVal10 % bill3 / bill2);
+        int unitsVal10 = (mainVal10 % bill3 % bill2);
 
-    hundred10Val = (short)(main10Val / 100);
-    tens10Val = (short)((main10Val - (hundred10Val * 100))/ 10);
-    units10Val = (short)((main10Val -(hundred10Val * 100)) - (tens10Val * 10));
-
-    countBill3 = (short)(hundred10Val * 100 / bill3);
-    countBill2 = (short)(tens10Val * 10 / bill2);
-    countBill1 = (short)(units10Val / bill1);
-
-    String fstr = String.format("номиналы банкнот и их требуемое количество: %1$s (%4$s), %2$s (%5$s), %3$s (%6$s) для формирование суммы: %7$s" ,bill1,bill2,bill3,countBill1,countBill2,countBill3,main10Val);
-    System.out.println(fstr);
+        String fstr = String.format("номиналы банкнот и их требуемое количество:\n" + 
+                                "%1$s (%4$s), %2$s (%5$s), %3$s (%6$s) для формирование суммы: %7$s" ,
+                                bill1,bill2,bill3,unitsVal10,tensVal10,hundredVal10,mainVal10);
+        System.out.println(fstr);
     }
 }
