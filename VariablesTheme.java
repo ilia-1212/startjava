@@ -178,9 +178,7 @@ public class VariablesTheme {
     mm10Val =  (main10Val - (hh10Val*3600))/60;
     ss10Val =  (main10Val -(hh10Val*3600)) - (mm10Val*60);
     System.out.println("Отображение времени (с):  "+main10Val+ ":\n" +
-                "Часы: " + hh10Val + "\n"+
-                "Минуты: " + mm10Val + "\n"+
-                "Секунды: " + ss10Val);
+                String.format("ЧЧ:ММ:CC %1$d:%2$d:%3$d",hh10Val, mm10Val, ss10Val));
 
     }
 }
