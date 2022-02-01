@@ -13,15 +13,15 @@ public class VariablesTheme {
         double totalAmountCostOs = 41_700_000_000.00d;
         boolean activated = true;
 
-        System.out.println("Характеристики ПК:\n" +
+        System.out.printf("Характеристики ПК:\n" +
                     "Поколение процессора: " + genProc + "\n" +
                     "Тип ОС 32/64: "  + typeOs + "\n" +
                     "Первая буква в имени пользователя: " + firstCharName + "\n" +
                     "Обьем жесткого диска: " + hddVolumeMB + "\n" +
-                    "Обьем оперативной памяти: " + String.format("%.0f",ramValueMb) + "\n" +
+                    "Обьем оперативной памяти: " + "%1$.0f" + "\n" +
                     "Общее кол-во пользователй ОС в мире: " + totalAmountUsersOs + "\n" +
-                    "текущий - объем выручки за ОС в мире: " + String.format("%.2f",totalAmountCostOs) + "\n" +
-                    "ОС активирована: " + activated);
+                    "текущий - объем выручки за ОС в мире: " + "%2$.2f" + "\n" +
+                    "ОС активирована: " + activated + "\n", ramValueMb, totalAmountCostOs);
 
         //2. Расчет стоимости товара со скидкой
         System.out.println("2. Расчет стоимости товара со скидкой");
@@ -35,8 +35,8 @@ public class VariablesTheme {
         totalSummDiscount = (goodXCostValue + goodYCostValue) * discount / 100;
         totalCost = goodXCostValue + goodYCostValue - totalSummDiscount;
 
-        System.out.println("итоговая сумма товаров со скидкой: " + String.format("%.2f",totalCost)+ "\n" +
-                    "сумму скидки: " + String.format("%.2f",totalSummDiscount));
+        System.out.printf("итоговая сумма товаров со скидкой: " + "%1$.2f"+ "\n" +
+                    "сумму скидки: " + "%2$.2f" + "\n", totalCost, totalSummDiscount);
 
         //3. Вывод на консоль слова JAVA
         System.out.println("3.  Вывод на консоль слова JAVA");
@@ -63,15 +63,12 @@ public class VariablesTheme {
                         "float (max) = " + floatMaxMin + "\n" + 
                         "double (max) = " + doubleMaxMin);
 
-
         System.out.println("byte (+1) = " + ++byteMaxMin + "\n" + 
                         "short (+1) = " + ++shortMaxMin + "\n" + 
                         "int (+1) = " + ++intMaxMin + "\n" + 
                         "long (+1) = " + ++longMaxMin + "\n" + 
                         "float (+1) = " + ++floatMaxMin + "\n" + 
                         "double (+1) = " + ++doubleMaxMin);
-
-
 
         System.out.println("byte (-1) = " + --byteMaxMin + "\n" + 
                         "short (-1) = " + --shortMaxMin + "\n" + 
@@ -101,7 +98,7 @@ public class VariablesTheme {
         byte chr3 = 64;
         byte chr4 = 94;
         byte chr5 = 95;
-        
+
         System.out.println("chr1 value: " + chr1 + " chr: " + (char) chr1);
         System.out.println("chr2 value: " + chr2 + " chr: " + (char) chr2);
         System.out.println("chr3 value: " + chr3 + " chr: " + (char) chr3);
@@ -129,11 +126,11 @@ public class VariablesTheme {
         char vDk5 = ')';
         char vDk6 = ' ';
 
-        System.out.println(String.format("%7s",vDk6) + vDk1 + String.format("%1s",vDk6) + vDk2);
-        System.out.println(String.format("%6s",vDk6) + vDk1 + String.format("%3s",vDk6) + vDk2);
-        System.out.println(String.format("%5s",vDk6) + vDk1 + vDk3 + vDk4 + String.format("%1s",vDk6) + vDk5 + vDk3 + vDk2);
-        System.out.println(String.format("%4s",vDk6) + vDk1 + String.format("%7s",vDk6)+ vDk2);
-        System.out.println(String.format("%3s",vDk6) + vDk1 + vDk3 + vDk3 + vDk3 + vDk1 + vDk2 + vDk3 + vDk3 + vDk3 + vDk3 + vDk2);
+        System.out.printf("%1$7s" + vDk1 + "%2$1s" + vDk2 + "\n", vDk6,vDk6);
+        System.out.printf("%1$6s" + vDk1 + "%2$3s" + vDk2 + "\n", vDk6,vDk6);
+        System.out.printf("%1$5s" + vDk1 + vDk3 + vDk4 + "%2$1s" + vDk5 + vDk3 + vDk2 + "\n", vDk6,vDk6);
+        System.out.printf("%1$4s" + vDk1 + "%2$7s"+ vDk2 + "\n", vDk6,vDk6);
+        System.out.printf("%1$3s" + vDk1 + vDk3 + vDk3 + vDk3 + vDk1 + vDk2 + vDk3 + vDk3 + vDk3 + vDk3 + vDk2 + "\n", vDk6);
 
         //9. Отображение сотен, десятков, единиц числа
         System.out.println("9. Отображение сотен, десятков, единиц числа");
@@ -142,7 +139,6 @@ public class VariablesTheme {
         int hundredVal9 = (mainVal9 / 100);
         int tensVal9 = (mainVal9 % 100 / 10);
         int unitsVal9 = (mainVal9 % 100 % 10);
-
 
         System.out.println("Отображение числа:  "+mainVal9 + ":\n" +
                     "Сотни: " + hundredVal9 + "\n"+
@@ -157,7 +153,7 @@ public class VariablesTheme {
         int mm10Val = (main10Val % 3600 / 60);
         int ss10Val = (main10Val % 60);
 
-        System.out.println("Отображение времени (с):  " + main10Val + ":\n" +
-                    String.format("ЧЧ:ММ:CC %1$02d:%2$02d:%3$02d",hh10Val, mm10Val, ss10Val));
+        System.out.printf("Отображение времени (с):  " + main10Val + ":\n" +
+                    "ЧЧ:ММ:CC %1$02d:%2$02d:%3$02d",hh10Val, mm10Val, ss10Val);
     }
 }
