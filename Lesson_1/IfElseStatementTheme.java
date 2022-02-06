@@ -68,20 +68,18 @@ public class IfElseStatementTheme {
             System.out.println("число c["+ c +"] положительное");
         }
 
-
-
         //4. Поиск общей цифры в числах
         System.out.println("4. Поиск общей цифры в числах");
 
-        int firstData = 746;
-        int secondData = 141;
+        int firstNumber = 746;
+        int secondNumber = 141;
 
-        if ((firstData / 100) == (secondData / 100)) {
-            System.out.println("Одинаковая цифра двух чисел " + firstData + " и " + secondData + ": " + (secondData / 100));
-        } else if ((firstData % 100 / 10) == (secondData % 100 / 10)) {
-            System.out.println("Одинаковая цифра двух чисел " + firstData + " и " + secondData + ": " + (firstData % 100 / 10));
-        } else if ((firstData % 100 % 10) == (secondData % 100 % 10)) {
-            System.out.println("Одинаковая цифра двух чисел " + firstData + " и " + secondData + ": " + (firstData % 100 % 10));
+        if ((firstNumber / 100) == (secondNumber / 100)) {
+            System.out.println("Одинаковая цифра двух чисел " + firstNumber + " и " + secondNumber + ": " + (secondNumber / 100));
+        } else if ((firstNumber % 100 / 10) == (secondNumber % 100 / 10)) {
+            System.out.println("Одинаковая цифра двух чисел " + firstNumber + " и " + secondNumber + ": " + (firstNumber % 100 / 10));
+        } else if ((firstNumber % 100 % 10) == (secondNumber % 100 % 10)) {
+            System.out.println("Одинаковая цифра двух чисел " + firstNumber + " и " + secondNumber + ": " + (firstNumber % 100 % 10));
         }
 
         //5. Определение буквы или символа по их коду
@@ -101,22 +99,19 @@ public class IfElseStatementTheme {
         System.out.println("6. Определение суммы вклада и начисленных банком %");
 
         float deposit = 300_000f;
-        float totalPrcSum;
-        float depositPrc;
+        float totalSum;
+        float interest;
         if (deposit < 100_000) {
-            depositPrc = 5f * deposit / 100;
-            totalPrcSum = (1 + (5f / 100)) * deposit;
+            interest = 5f / 100 * deposit;
         } else if (deposit >= 100_000 && deposit <= 300_000) {
-            depositPrc = 7f * deposit / 100;
-            totalPrcSum = (1 + (7f / 100)) * deposit;
+            interest = 7f / 100 * deposit;
         } else {
-            depositPrc = 10f * deposit / 100;
-            totalPrcSum = (1 + (10f / 100)) * deposit;
+            interest = 10f / 100 * deposit;
         }
-
+        totalSum = deposit + interest;
         System.out.println("сумму вклада: " + deposit + "\n"+
-                "начисленный %: " + depositPrc + "\n"+
-                "итоговая сумму с %: " + totalPrcSum
+                "начисленный %: " + interest + "\n"+
+                "итоговая сумму с %: " + totalSum
                 );
 
         //7. Определение оценки по предметам
@@ -125,33 +120,25 @@ public class IfElseStatementTheme {
         float rateSubject1 = 59;
         int mark1;
         if (rateSubject1 > 60 && rateSubject1 <= 73) {
-            System.out.println("Оценка:3 по предмету: история");
-            mark1 = 3;
+            System.out.println("Оценка:" + (mark1 = 3) +" по предмету: история");
         } else if (rateSubject1 > 73 && rateSubject1 <= 91) {
-            System.out.println("Оценка:4 по предмету: история");
-            mark1 = 4;
+            System.out.println("Оценка:" + (mark1 = 4) +" по предмету: история");
         } else if (rateSubject1 > 91) {
-            System.out.println("Оценка:5 по предмету: история");
-            mark1 = 5;
+            System.out.println("Оценка:" + (mark1 = 5) +" по предмету: история");
         } else {
-            System.out.println("Оценка:2 по предмету: история");
-            mark1 = 2;
+            System.out.println("Оценка:" + (mark1 = 2) +" по предмету: история");
         }
 
         float rateSubject2 = 91;
         int mark2;
         if (rateSubject2 > 60 && rateSubject2 <= 73) {
-            System.out.println("Оценка:3 по предмету: программирование");
-            mark2 = 3;
+            System.out.println("Оценка:" + (mark2 = 3) +" по предмету: программирование");
         } else if (rateSubject2 > 73 && rateSubject2 <= 91) {
-            System.out.println("Оценка:4 по предмету: программирование");
-            mark2 = 4;
+            System.out.println("Оценка:" + (mark2 = 4) +" по предмету: программирование");
         } else if (rateSubject2 > 91) {
-            System.out.println("Оценка:5 по предмету: программирование");
-            mark2 = 5;
+            System.out.println("Оценка:" + (mark2 = 5) +" по предмету: программирование");
         } else {
-            System.out.println("Оценка:2 по предмету: программирование");
-            mark2 = 2;
+            System.out.println("Оценка:" + (mark2 = 2) +" по предмету: программирование");
         }
 
         System.out.println("Средний бал по предметам: " + (mark1 + mark2) / 2);
@@ -160,14 +147,15 @@ public class IfElseStatementTheme {
         //8. Расчет прибыли (убытка)
         System.out.println("8. Расчет прибыли (убытка)");
 
-        float avgExpensesPrice = 5_000f;
-        float avgRetailPrice = 15_000f;
-        float avgPurchasePrice = 9_000f;
+        float avgExpenses = 5_000f;
+        float avgRetail = 15_000f;
+        float avgPurchase = 9_000f;
+        float profit = avgRetail - avgPurchase - avgExpenses;
 
-        if (((avgRetailPrice * 12) - (avgPurchasePrice * 12)) >= (avgExpensesPrice * 12)) {
-            System.out.printf("Годовая прибыль: " + "%1$+9.2f" + "\n", (avgRetailPrice * 12) - (avgPurchasePrice * 12) - (avgExpensesPrice * 12));
+        if (profit > 0) {
+            System.out.printf("Годовая прибыль: " + "%1$+9.2f" + "\n", profit * 12);
         } else {
-            System.out.printf("Годовой убыток: " + "%1$-9.2f" + "\n",(avgRetailPrice * 12) - (avgPurchasePrice * 12) - (avgExpensesPrice * 12));
+            System.out.printf("Годовой убыток: " + "%1$-9.2f" + "\n", profit * 12);
         }
 
         //9. Определение существования треугольника
@@ -177,7 +165,7 @@ public class IfElseStatementTheme {
         double y = 5;
         double z = 9;
         boolean isExist;
-        double triangleS;
+       double triangleS;
 
         if ((x + y <= z) || (x + z <= y) || (y + z <= x)) {
             isExist = false;
@@ -197,11 +185,11 @@ public class IfElseStatementTheme {
             System.out.println("треугольник не существует");
         }
 
-        System.out.println("        / \\");
-        System.out.println("       /   \\");
-        System.out.println("      /     \\");
-        System.out.println("     /       \\");
-        System.out.println("    /_________\\");
+        System.out.println("    | \\");
+        System.out.println("    |  \\");
+        System.out.println("    |   \\");
+        System.out.println("    |    \\");
+        System.out.println("    |_____\\");
 
         //10. Подсчет количества банкнот
         System.out.println("10. Подсчет количества банкнот");
