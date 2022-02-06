@@ -18,7 +18,7 @@ public class Cycle {
         do {
             if (z % 2 != 0) {
                 System.out.println("z= " + z);
-                sumOdd +javajavac= z;
+                sumOdd += z;
             } 
             z++;
         } while (z < 21);

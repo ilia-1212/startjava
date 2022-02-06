@@ -150,12 +150,12 @@ public class IfElseStatementTheme {
         float avgExpenses = 5_000f;
         float avgRetail = 15_000f;
         float avgPurchase = 9_000f;
-        float profit = avgRetail - avgPurchase - avgExpenses;
+        float profit = (avgRetail - avgPurchase - avgExpenses) * 12;
 
         if (profit > 0) {
-            System.out.printf("Годовая прибыль: " + "%1$+9.2f" + "\n", profit * 12);
+            System.out.printf("Годовая прибыль: " + "%1$+9.2f" + "\n", profit);
         } else {
-            System.out.printf("Годовой убыток: " + "%1$-9.2f" + "\n", profit * 12);
+            System.out.printf("Годовой убыток: " + "%1$-9.2f" + "\n", profit);
         }
 
         //9. Определение существования треугольника
