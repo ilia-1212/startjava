@@ -155,7 +155,7 @@ public class IfElseStatementTheme {
         if (profit > 0) {
             System.out.printf("Годовая прибыль: " + "%1$+9.2f" + "\n", profit);
         } else {
-            System.out.printf("Годовой убыток: " + "%1$-9.2f" + "\n", profit);
+            System.out.printf("Годовой убыток: " + "%1$-9.2f" + "\n", profitв);
         }
 
         //9. Определение существования треугольника
@@ -165,7 +165,7 @@ public class IfElseStatementTheme {
         double y = 5;
         double z = 9;
         boolean isExist;
-       double triangleS;
+        double triangleS;
 
         if ((x + y <= z) || (x + z <= y) || (y + z <= x)) {
             isExist = false;
