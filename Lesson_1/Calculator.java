@@ -1,11 +1,12 @@
 public class Calculator {
     static double calculate(int a , int b, char sign) {
         double result = 0;
+
         if (a < 0 | b < 0) {
             System.out.println("Вычисление выполняется только над целыми положительными числами");
             return 0;
         }
-        
+
         if (sign == '+') {
             result = a + b;
         } else if (sign == '-') {
@@ -16,7 +17,7 @@ public class Calculator {
             result = (double) a / b;
         } else if (sign == '^') {
             result = 1;
-            for(int x = 1; x < b; x++) {
+            for (int i = 1; i < b; i++) {
                 result = result * a;
             }
         } else if (sign == '%') {
