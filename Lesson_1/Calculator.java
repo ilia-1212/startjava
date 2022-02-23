@@ -1,43 +1,12 @@
 public class Calculator {
     public static void main(String[] args) {
-        int a = 0;
-        int b = 0;
+        int a = 5;
+        int b = 6;
         double result = 0;
         char sign = '+';
 
-        a = -5;
-        b = 6;
         result = calculate(a, b, sign);
         System.out.printf("Операция: " + sign + " над числами " + a + ", " + b + " = " + "%1$.0f" + "\n", result);
-        a = 5;
-        b = 6;
-        result = calculate(a, b, sign);
-        System.out.printf("Операция: " + sign + " над числами " + a + ", " + b + " = " + "%1$.0f" + "\n", result);
-        a = 8;
-        b = 100;
-        sign = '-';
-        result = calculate(a, b, sign);
-        System.out.printf("Операция: " + sign + " над числами " + a + ", " + b + " = " + "%1$.0f" + "\n", result);
-        a = 9;
-        b = 12;
-        sign = '*';
-        result = calculate(a, b, sign);
-        System.out.printf("Операция: " + sign + " над числами " + a + ", " + b + " = " + "%1$.0f" + "\n", result);
-        a = 50;
-        b = 4;
-        sign = '/';
-        result = calculate(a, b, sign);
-        System.out.printf("Операция: " + sign + " над числами " + a + ", " + b + " = " + "%1$.2f" + "\n", result);
-        a = 5;
-        b = 3;
-        sign = '^';
-        result = calculate(a, b, sign);
-        System.out.printf("Операция: " + sign + " над числами " + a + ", " + b + " = " + "%1$.0f" + "\n", result);
-        a = 5;
-        b = 3;
-        sign = '%';
-        result = calculate(a, b, sign);
-        System.out.printf("Операция: " + "mod"+ " над числами " + a + ", " + b + " = " + "%1$.0f" + "\n", result);
     }
 
     private double calculate(int a, int b, char sign) {
