@@ -9,7 +9,7 @@ public class Calculator {
         System.out.printf("Операция: " + sign + " над числами " + a + ", " + b + " = " + "%1$.0f" + "\n", result);
     }
 
-    private double calculate(int a, int b, char sign) {
+    private static double calculate(int a, int b, char sign) {
         double result = 0;
 
         if (a < 0 || b < 0) {
