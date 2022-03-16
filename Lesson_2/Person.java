@@ -6,46 +6,6 @@ public class Person {
     private float weight = 72.5f;
     private int age = 39;
 
-    public char getSex() {
-        return sex;
-    }
-
-    public void setSex(char sx) {
-        sex = sx;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String nm) {
-        name = nm;
-    }
-
-    public float getHeight() {
-        return height;
-    }
-
-    public void setHeight(float hg) {
-        height = hg;
-    }
-
-    public float getWeight() {
-        return weight;
-    }
-
-    public void setWeight(float wg) {
-        weight = wg;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     //сидеть
     public void sit() {
         System.out.println("человек " + name + " присел");
