@@ -1,26 +1,10 @@
 public class Person {
-    
+
     private char sex = 'M';
     private String name = "Ilia";
     private float height = 171f;
     private float weight = 72.5f;
     private int age = 39;
-
-    public Person() {}
-
-    public Person(String name, char sex, int age) {
-        this.name = name;
-        this.sex = sex;
-        this.age = age;
-    }
-
-    public Person(String name, char sex, int age, float height, float weight) {
-        this.name = name;
-        this.sex = sex;
-        this.age = age;
-        this.height = height;
-        this.weight = weight;
-    }
 
     public char getSex() {
         return sex;
@@ -91,17 +75,4 @@ public class Person {
     public void learn(String subj) {
         System.out.println("человек " + name + " учит " + subj);
     }
-
-    // public static void main(String[] args) {
-    //     Person p1 = new Person();
-    //     p1.setHeight(175);
-    //     System.out.println("Подрос " + p1.height);
-
-    //     p1.learn("Java");
-    //     p1.go();
-    //     p1.celebrateHb();
-    //     p1.run();
-    //     p1.talk();
-    //     p1.sit();
-    //}
 }
