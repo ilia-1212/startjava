@@ -19,22 +19,10 @@ public class CalculatorTest {
             System.out.println("Введите второе  число");
             cl.setNum2(inputNum(nm2));
 
-            float result = 0;
-            int continueMode = 2;
+            cl.calculate();
+            System.out.printf("результат = " + "%.2f" + "\n", cl.getResult());
 
-            result = cl.calculate();
-            System.out.printf("результат = " + "%.2f" + "\n", result);
-            
-            String askValue;
-            while (continueMode == 2) {
-                System.out.println("Хотите продолжить вычисления? [yes/no]:");
-                askValue = ask.nextLine();
-                
-                if (askValue.equals("no")) continueMode = 0;
-                else if (askValue.equals("yes")) continueMode = 1;
-                else continueMode = 2;
-            }
-            if (continueMode == 0) break;
+            if (getAnswer(ask) == 0) break;
         }
         nm1.close();
         oper.close();
@@ -66,5 +54,20 @@ public class CalculatorTest {
             str = sc.nextLine();
         } while (!str.equals("+") && !str.equals("-") && !str.equals("*") && !str.equals("/") && !str.equals("^") && !str.equals("%"));
         return str;
+    }
+
+    static int getAnswer(Scanner sc) {
+        int num = 2;
+        String ansValue;
+
+        while (num == 2) {
+            System.out.println("Хотите продолжить вычисления? [yes/no]:");
+            ansValue = sc.nextLine();
+            
+            if (ansValue.equals("no")) num = 0;
+            else if (ansValue.equals("yes")) num = 1;
+            else num = 2;
+        }
+        return num;
     }
 }

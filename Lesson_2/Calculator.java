@@ -2,6 +2,7 @@ public class Calculator {
     private String sign;
     private int num1;
     private int num2;
+    private float result;
 
     public String getSign() {
         return sign;
@@ -27,8 +28,12 @@ public class Calculator {
         this.num2 = num2;
     }
 
+    public float getResult() {
+        return result;
+    }
+
     private float power(int a, int b) {
-        float result;
+        
 
         result = 1;
         for (int i = 1; i <= b; i++) {
@@ -37,8 +42,7 @@ public class Calculator {
         return result;
     }
 
-    public float calculate() {
-        float result = 0;
+    public void calculate() {
 
         switch (sign) {
             case "+" :
@@ -63,6 +67,5 @@ public class Calculator {
                 result = 0;
                 break;
         }
-        return result;
     }
 }
