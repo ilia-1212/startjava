@@ -19,11 +19,11 @@ public class CalculatorTest {
             System.out.println("Введите второе  число");
             cl.setNum2(inputNum(nm2));
 
-            double result = 0;
+            float result = 0;
             int continueMode = 2;
 
             result = cl.calculate();
-            System.out.printf("Операция: " + cl.getSign() + " над числами " + cl.getNum1() + ", " + cl.getNum2() + " = " + "%1$.0f" + "\n", result);
+            System.out.printf("результат = " + "%.2f" + "\n", result);
             
             String askValue;
             while (continueMode == 2) {
@@ -56,15 +56,15 @@ public class CalculatorTest {
     }
 
     static String inputOper(Scanner sc) {
-        String num;
+        String str;
         do {
             System.out.println("Введите операцию +-*/^%");
             while (!sc.hasNextLine()) {
                 System.out.println("Неправильный ввод");
                 sc.next();
             }
-            num = sc.nextLine();
-        } while (!num.equals("+") && !num.equals("-") && !num.equals("*") && !num.equals("/") && !num.equals("^") && !num.equals("%"));
-        return num;
+            str = sc.nextLine();
+        } while (!str.equals("+") && !str.equals("-") && !str.equals("*") && !str.equals("/") && !str.equals("^") && !str.equals("%"));
+        return str;
     }
 }

@@ -27,8 +27,8 @@ public class Calculator {
         this.num2 = num2;
     }
 
-    private double power(int a, int b) {
-        double result;
+    private float power(int a, int b) {
+        float result;
 
         result = 1;
         for (int i = 1; i <= b; i++) {
@@ -37,8 +37,8 @@ public class Calculator {
         return result;
     }
 
-    public double calculate() {
-        double result = 0;
+    public float calculate() {
+        float result = 0;
 
         switch (sign) {
             case "+" :
@@ -51,7 +51,7 @@ public class Calculator {
                 result = num1 * num2;
                 break;
             case "/" :
-                result = (double) num1 / num2;
+                result =(float) num1 / num2;
                 break;
             case "^" :
                 result = power(num1, num2);
