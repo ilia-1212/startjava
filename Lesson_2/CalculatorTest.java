@@ -32,6 +32,7 @@ public class CalculatorTest {
 
     static int inputNum(Scanner sc) {
         int num;
+        
         do {
             System.out.println("Введите целое положительное число");
             while (!sc.hasNextInt()) {
@@ -45,6 +46,7 @@ public class CalculatorTest {
 
     static String inputOper(Scanner sc) {
         String str;
+
         do {
             System.out.println("Введите операцию +-*/^%");
             while (!sc.hasNextLine()) {
