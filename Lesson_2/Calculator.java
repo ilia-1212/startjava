@@ -33,8 +33,6 @@ public class Calculator {
     }
 
     private float power(int a, int b) {
-        
-
         result = 1;
         for (int i = 1; i <= b; i++) {
             result *= a;
@@ -43,7 +41,6 @@ public class Calculator {
     }
 
     public void calculate() {
-
         switch (sign) {
             case "+" :
                 result = num1 + num2;
