@@ -6,7 +6,7 @@ public class CalculatorTest {
         Scanner oper = new Scanner(System.in);
         Scanner nm2 = new Scanner(System.in);
         Scanner ask = new Scanner(System.in);
-        
+
         while (true) {
             Calculator cl = new Calculator();
 
@@ -43,28 +43,28 @@ public class CalculatorTest {
     }
 
     static int inputNum(Scanner sc) {
-            int num;
-            do {
-                System.out.println("Введите целое положительное число");
-                while (!sc.hasNextInt()) {
-                    System.out.println("Неправильный ввод");
-                    sc.next();
-                }
-                num = sc.nextInt();
-            } while (num < 0);
-            return num;
+        int num;
+        do {
+            System.out.println("Введите целое положительное число");
+            while (!sc.hasNextInt()) {
+                System.out.println("Неправильный ввод");
+                sc.next();
+            }
+            num = sc.nextInt();
+        } while (num < 0);
+        return num;
     }
 
     static String inputOper(Scanner sc) {
-            String num;
-            do {
-                System.out.println("Введите операцию +-*/^%");
-                while (!sc.hasNextLine()) {
-                    System.out.println("Неправильный ввод");
-                    sc.next();
-                }
-                num = sc.nextLine();
-            } while (!num.equals("+") && !num.equals("-") && !num.equals("*") && !num.equals("/") && !num.equals("^") && !num.equals("%"));
-            return num;
+        String num;
+        do {
+            System.out.println("Введите операцию +-*/^%");
+            while (!sc.hasNextLine()) {
+                System.out.println("Неправильный ввод");
+                sc.next();
+            }
+            num = sc.nextLine();
+        } while (!num.equals("+") && !num.equals("-") && !num.equals("*") && !num.equals("/") && !num.equals("^") && !num.equals("%"));
+        return num;
     }
 }
