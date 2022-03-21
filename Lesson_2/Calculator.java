@@ -35,21 +35,20 @@ public class Calculator {
                 result = (float) num1 / num2;
                 break;
             case "^" :
-                result = pow(num1, num2);
+                result = pow();
                 break;
             case "%" :
                 result = num1 % num2;
                 break;
             default :
                 result = 0;
-                break;
         }
     }
 
-    private float pow(int a, int b) {
+    private float pow() {
         result = 1;
-        for (int i = 1; i <= b; i++) {
-            result *= a;
+        for (int i = 1; i <= num2; i++) {
+            result *= num1;
         }
         return result;
     }
