@@ -1,75 +1,71 @@
 import java.util.Scanner;
 
 public class CalculatorTest {
+    private Scanner scanner;
+
     public static void main(String[] args) {
-        Scanner nm1 = new Scanner(System.in);
-        Scanner oper = new Scanner(System.in);
-        Scanner nm2 = new Scanner(System.in);
-        Scanner ask = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         while (true) {
             Calculator cl = new Calculator();
 
-            System.out.println("Введите первое число");
-            cl.setNum1(inputNum(nm1));
+            System.out.print("Введите первое число, ");
+            int numberOperation;
+            do {
+                System.out.println("должно быть целое и положительное, (0, 100]");
+                while (!scanner.hasNextInt()) {
+                    System.out.println("Введено не число, повторите ввод");
+                    scanner.next();
+                }
+                numberOperation = scanner.nextInt();
+            } while (numberOperation < 0 || numberOperation > 100);
+            cl.setNum1(numberOperation);
+            scanner = null;
+            
+            scanner = new Scanner(System.in);
+            System.out.print("Введите знак операции, ");
+            String mathOperation;
+            do {
+                System.out.println("допустимо значение из вариантов: (+-*/^%)");
+                while (!scanner.hasNextLine()) {
+                    System.out.println("Введен не символ операции, повторите ввод");
+                    scanner.next();
+                }
+                mathOperation = scanner.nextLine();
+            } while (!mathOperation.equals("+") && !mathOperation.equals("-") && !mathOperation.equals("*") && !mathOperation.equals("/") && !mathOperation.equals("^") && !mathOperation.equals("%"));
+            cl.setSign(mathOperation);
+            scanner = null;
 
-            System.out.println("Введите знак операции");
-            cl.setSign(inputOper(oper));
-
-            System.out.println("Введите второе  число");
-            cl.setNum2(inputNum(nm2));
+            scanner = new Scanner(System.in);
+            System.out.print("Введите второе число, ");
+            do {
+                System.out.println("должно быть целое и положительное, в диапазоне: (0, 100]");
+                while (!scanner.hasNextInt()) {
+                    System.out.println("Введено не число, повторите ввод");
+                    scanner.next();
+                }
+                numberOperation = scanner.nextInt();
+            } while (numberOperation < 0 || numberOperation > 100);
+            cl.setNum2(numberOperation);
+            scanner = null;
 
             cl.calculate();
             System.out.printf("результат = " + "%.2f" + "\n", cl.getResult());
 
-            if (getAnswer(ask) == 0) break;
-        }
-        nm1.close();
-        oper.close();
-        nm2.close();
-        ask.close();
-    }
-
-    static int inputNum(Scanner sc) {
-        int num;
-        
-        do {
-            System.out.println("Введите целое положительное число");
-            while (!sc.hasNextInt()) {
-                System.out.println("Неправильный ввод");
-                sc.next();
+            scanner = new Scanner(System.in);
+            boolean isContinued = true;
+            String ansValue = "";
+            System.out.print("Хотите продолжить вычисления? ");
+            while (isContinued) {
+                System.out.println("Допустимы только значения: (yes/no):");
+                ansValue = scanner.nextLine();
+                
+                if (ansValue.equals("no")) isContinued = false;
+                else if (ansValue.equals("yes")) isContinued = false;
+                else isContinued = true;
             }
-            num = sc.nextInt();
-        } while (num < 0);
-        return num;
-    }
-
-    static String inputOper(Scanner sc) {
-        String str;
-
-        do {
-            System.out.println("Введите операцию +-*/^%");
-            while (!sc.hasNextLine()) {
-                System.out.println("Неправильный ввод");
-                sc.next();
-            }
-            str = sc.nextLine();
-        } while (!str.equals("+") && !str.equals("-") && !str.equals("*") && !str.equals("/") && !str.equals("^") && !str.equals("%"));
-        return str;
-    }
-
-    static int getAnswer(Scanner sc) {
-        int num = 2;
-        String ansValue;
-
-        while (num == 2) {
-            System.out.println("Хотите продолжить вычисления? [yes/no]:");
-            ansValue = sc.nextLine();
-            
-            if (ansValue.equals("no")) num = 0;
-            else if (ansValue.equals("yes")) num = 1;
-            else num = 2;
+            if (!isContinued && ansValue.equals("no")) break;
         }
-        return num;
+        scanner.close();
     }
 }
