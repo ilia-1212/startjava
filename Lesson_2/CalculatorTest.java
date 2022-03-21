@@ -1,28 +1,17 @@
 import java.util.Scanner;
 
 public class CalculatorTest {
-    private Scanner scanner;
-
+    private static Scanner scanner;
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        int numberOperation = 0;
 
+        Scanner scanner = new Scanner(System.in);
         while (true) {
             Calculator cl = new Calculator();
 
             System.out.print("Введите первое число, ");
-            int numberOperation;
-            do {
-                System.out.println("должно быть целое и положительное, (0, 100]");
-                while (!scanner.hasNextInt()) {
-                    System.out.println("Введено не число, повторите ввод");
-                    scanner.next();
-                }
-                numberOperation = scanner.nextInt();
-            } while (numberOperation < 0 || numberOperation > 100);
-            cl.setNum1(numberOperation);
-            scanner = null;
-            
-            scanner = new Scanner(System.in);
+            cl.setNum1(inputNum());
+
             System.out.print("Введите знак операции, ");
             String mathOperation;
             do {
@@ -34,9 +23,7 @@ public class CalculatorTest {
                 mathOperation = scanner.nextLine();
             } while (!mathOperation.equals("+") && !mathOperation.equals("-") && !mathOperation.equals("*") && !mathOperation.equals("/") && !mathOperation.equals("^") && !mathOperation.equals("%"));
             cl.setSign(mathOperation);
-            scanner = null;
 
-            scanner = new Scanner(System.in);
             System.out.print("Введите второе число, ");
             do {
                 System.out.println("должно быть целое и положительное, в диапазоне: (0, 100]");
@@ -47,12 +34,10 @@ public class CalculatorTest {
                 numberOperation = scanner.nextInt();
             } while (numberOperation < 0 || numberOperation > 100);
             cl.setNum2(numberOperation);
-            scanner = null;
 
             cl.calculate();
             System.out.printf("результат = " + "%.2f" + "\n", cl.getResult());
 
-            scanner = new Scanner(System.in);
             boolean isContinued = true;
             String ansValue = "";
             System.out.print("Хотите продолжить вычисления? ");
@@ -67,5 +52,18 @@ public class CalculatorTest {
             if (!isContinued && ansValue.equals("no")) break;
         }
         scanner.close();
+    }
+
+    private static int inputNum() {
+            int num;
+            do {
+                System.out.println("должно быть целое и положительное, (0, 100]");
+                while (!scanner.hasNextInt()) {
+                    System.out.println("Введено не число, повторите ввод");
+                    scanner.next();
+                }
+                num = scanner.nextInt();
+            } while (num < 0 || num > 100);
+            return num;
     }
 }

@@ -130,5 +130,5 @@ public class Jaeger {
             System.out.println("StingBladesCannon активирован");
             isWeaponActivated = true;
         }
-    }    
+    }
 }
