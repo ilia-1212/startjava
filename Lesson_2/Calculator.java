@@ -1,5 +1,5 @@
 public class Calculator {
-    private String MathSign;
+    private String mathSign;
     private int num1;
     private int num2;
     private float result;
@@ -8,8 +8,8 @@ public class Calculator {
         this.num1 = num1;
     }
 
-    public void setSign(String MathSign) {
-        this.MathSign = MathSign;
+    public void setSign(String mathSign) {
+        this.mathSign = mathSign;
     }
 
     public void setNum2(int num2) {
@@ -21,7 +21,7 @@ public class Calculator {
     }
 
     public void calculate() {
-        switch (MathSign) {
+        switch (mathSign) {
             case "+" :
                 result = num1 + num2;
                 break;

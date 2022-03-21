@@ -1,16 +1,25 @@
 import java.util.Scanner;
 
 public class CalculatorTest {
-    private static Scanner scanner;
-    public static void main(String[] args) {
-        int numberOperation = 0;
+    private Scanner scanner;
 
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         while (true) {
             Calculator cl = new Calculator();
 
             System.out.print("Введите первое число, ");
-            cl.setNum1(inputNum());
+            int numberOperation;
+            do {
+                System.out.println("должно быть целое и положительное, (0, 100]");
+                while (!scanner.hasNextInt()) {
+                    System.out.println("Введено не число, повторите ввод");
+                    scanner.next();
+                }
+                numberOperation = scanner.nextInt();
+            } while (numberOperation < 0 || numberOperation > 100);
+            cl.setNum1(numberOperation);
 
             System.out.print("Введите знак операции, ");
             String mathOperation;
@@ -52,18 +61,5 @@ public class CalculatorTest {
             if (!isContinued && ansValue.equals("no")) break;
         }
         scanner.close();
-    }
-
-    private static int inputNum() {
-            int num;
-            do {
-                System.out.println("должно быть целое и положительное, (0, 100]");
-                while (!scanner.hasNextInt()) {
-                    System.out.println("Введено не число, повторите ввод");
-                    scanner.next();
-                }
-                num = scanner.nextInt();
-            } while (num < 0 || num > 100);
-            return num;
     }
 }
