@@ -24,8 +24,8 @@ public class CalculatorTest {
 
             String playerAnswer;
             System.out.println("Хотите продолжить вычисления?");
-            while (!(playerAnswer = scanner.nextLine()).equals("yes") && !playerAnswer.equals("no") ) {
-                    System.out.println("Допустимы только значения: (yes/no):");
+            while (!(playerAnswer = scanner.nextLine()).equals("yes") && !playerAnswer.equals("no")) {
+                    System.out.println("Допустимы только значения: (yes/no)");
             }
             if (playerAnswer.equals("no")) break;
         }
