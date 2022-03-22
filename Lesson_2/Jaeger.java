@@ -8,6 +8,41 @@ public class Jaeger {
     private int armor;
     private boolean isWeaponActivated;
 
+    public Jaeger() {
+        this("","","");
+    }
+
+    public Jaeger(String modelName, String mark, String origin) {
+        this.modelName = modelName;
+        this.mark = mark;
+        this.origin = origin;
+    }
+
+    public Jaeger(String modelName, String mark, String origin, float height, float weight) {
+        this.modelName = modelName;
+        this.mark = mark;
+        this.origin = origin;
+        this.height = height;
+        this.weight = weight;
+    }
+
+    public Jaeger(String modelName, String mark, String origin, float height, float weight, int strength, int armor) {
+        this.modelName = modelName;
+        this.mark = mark;
+        this.origin = origin;
+        this.height = height;
+        this.weight = weight;
+        this.strength = strength;
+        this.armor = armor;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Робот: %s, модель %s, производство %s \nХарактеристики: высота %f, вес %f" + "\n" +
+            "ТТХ: прочность %d, вооружение %d\n",
+            modelName, mark, origin, height, weight, strength, armor);
+    }
+
     //modelName
     public String getModelName() {
         return modelName;
@@ -93,16 +128,6 @@ public class Jaeger {
 
     public String scanKaiju() {
         return "scanning";
-    }
-
-    public void PrintJaegerInfo() {
-        System.out.println("modelName: " + modelName);
-        System.out.println("mark: " + mark);
-        System.out.println("origin: " + origin);
-        System.out.println("height: " + height);
-        System.out.println("weight: " + weight);
-        System.out.println("strength: " + strength);
-        System.out.println("armor: " + armor);
     }
 
     public void useCannon() {
