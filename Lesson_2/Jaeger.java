@@ -78,28 +78,41 @@ public class Jaeger {
         else this.armor = armor;
     }
 
-    boolean drift() {
-        System.out.println("Вы вошли в дрифт");
+    public boolean drift() {
+        System.out.println(modelName + " вошел в дрифт");
         return true;
     }
 
-    void move() {
-        System.out.println("Вы вошли 5 шагов");
+    public void move() {
+        move(5);
     }
 
-    String scanKaiju() {
+    public void move(int step) {
+        System.out.println(modelName + " прошел " + step + " шаг(ов)");
+    }
+
+    public String scanKaiju() {
         return "scanning";
     }
 
-    void useCannon() {
+    public void PrintJaegerInfo() {
+        System.out.println("modelName: " + modelName);
+        System.out.println("mark: " + mark);
+        System.out.println("origin: " + origin);
+        System.out.println("height: " + height);
+        System.out.println("weight: " + weight);
+        System.out.println("strength: " + strength);
+        System.out.println("armor: " + armor);
+    }
+
+    public void useCannon() {
         if (modelName == "Bracer Phoenix") useVortexCannon();
-        else if (modelName == "Gipsy Danger") usePlasmaCannon();
         else if (modelName == "Gipsy Danger") usePlasmaCannon();
         else if (modelName == "Striker Eureka") useStingBladesCannon();
         else System.out.println("вооружение отсутсвует");
     }
 
-    void useVortexCannon() {
+    private void useVortexCannon() {
         if (isWeaponActivated) {
             System.out.println("VortexCannon деактивирован");
             isWeaponActivated = false;
@@ -110,7 +123,7 @@ public class Jaeger {
         }
     }
 
-    void usePlasmaCannon() {
+    private void usePlasmaCannon() {
         if (isWeaponActivated) {
             System.out.println("PlasmaCannon деактивирован");
             isWeaponActivated = false;
@@ -121,7 +134,7 @@ public class Jaeger {
         }
     }
 
-    void useStingBladesCannon() {
+    private void useStingBladesCannon() {
         if (isWeaponActivated) {
             System.out.println("StingBladesCannon деактивирован");
             isWeaponActivated = false;
