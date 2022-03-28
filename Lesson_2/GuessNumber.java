@@ -17,11 +17,11 @@ public class GuessNumber {
 
         guessNum = (int) (Math.random() * 100 + 1);
         while (true) {
-            System.out.println("ходит игрок номер 1 (" + player1.getName() + "):");
+            System.out.println("Ходит игрок номер 1:");
             player1.setNum(inputNum());
             if (compareNum(guessNum, player1)) break;
 
-            System.out.println("ходит игрок номер 2 (" + player2.getName() + "):");
+            System.out.println("Ходит игрок номер 2:");
             player2.setNum(inputNum());
             if (compareNum(guessNum, player2)) break;
         }
@@ -43,15 +43,10 @@ public class GuessNumber {
     private boolean compareNum(int num, Player player) {
         boolean result = false;
         if (num == player.getNum()) {
-            System.out.println("Вы (" + player.getName() + ") угадали!");
+            System.out.println(player.getName() + " Вы угадали!");
             result = true;
-        } else if (num < player.getNum()) {
-            System.out.println("Вы ввели число больше, чем загадал компьютер");
-            result = false;
-        } else {
-            System.out.println("Вы ввели число меньше, чем загадал компьютер");
-            result = false;
-        }
+        } else if (num < player.getNum()) System.out.println(player.getName() + " Вы ввели число больше, чем загадал компьютер");
+        else System.out.println(player.getName() + " Вы ввели число меньше, чем загадал компьютер");
         return result;
     }
 }
