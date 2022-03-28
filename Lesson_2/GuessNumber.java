@@ -16,25 +16,14 @@ public class GuessNumber {
         scanner = new Scanner(System.in);
 
         guessNum = (int) (Math.random() *100 + 1);
-        int numPlayerChoice = 1;
         while (!(guessNum == player1.getNum() || guessNum == player2.getNum())) {
-            if (numPlayerChoice == 1) {
                 System.out.println("ходит игрок номер 1 (" + player1.getName() + "):");
                 player1.setNum(inputNum());
-            } else {
+                comapreNum(guessNum, player1.getNum());
+
                 System.out.println("ходит игрок номер 2 (" + player2.getName() + "):");
                 player2.setNum(inputNum());
-            }
-
-            if (numPlayerChoice == 1) {
-                if (guessNum < player1.getNum()) System.out.println("Вы ввели число больше, чем загадал компьютер");
-                else if (guessNum > player1.getNum()) System.out.println("Вы ввели число меньше, чем загадал компьютер");
-                numPlayerChoice = 2;
-            } else {
-                if (guessNum < player2.getNum()) System.out.println("Вы ввели число больше, чем загадал компьютер");
-                else if (guessNum > player2.getNum()) System.out.println("Вы ввели число меньше, чем загадал компьютер");
-                numPlayerChoice = 1;
-            }
+                comapreNum(guessNum, player2.getNum());
         }
         System.out.println("Вы угадали!");
     }
@@ -50,5 +39,10 @@ public class GuessNumber {
             num = scanner.nextInt();
         } while (num <= 0 || num > 100);
         return num;
+    }
+
+    private void comapreNum(int num1, int num2) {
+        if (num1 < num2) System.out.println("Вы ввели число больше, чем загадал компьютер");
+        else if (num1 > num2) System.out.println("Вы ввели число меньше, чем загадал компьютер");
     }
 }
