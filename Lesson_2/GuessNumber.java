@@ -48,7 +48,7 @@ public class GuessNumber {
         } else if (num < player.getNum()) {
             System.out.println("Вы ввели число больше, чем загадал компьютер");
             result = false;
-        } else if (num > player.getNum()) {
+        } else {
             System.out.println("Вы ввели число меньше, чем загадал компьютер");
             result = false;
         }
