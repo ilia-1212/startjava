@@ -15,17 +15,16 @@ public class GuessNumber {
         int guessNum = 0;
         scanner = new Scanner(System.in);
 
-        guessNum = (int) (Math.random() *100 + 1);
-        while (!(guessNum == player1.getNum() || guessNum == player2.getNum())) {
-                System.out.println("ходит игрок номер 1 (" + player1.getName() + "):");
-                player1.setNum(inputNum());
-                compareNum(guessNum, player1.getNum());
+        guessNum = (int) (Math.random() * 100 + 1);
+        while (true) {
+            System.out.println("ходит игрок номер 1 (" + player1.getName() + "):");
+            player1.setNum(inputNum());
+            if (compareNum(guessNum, player1)) break;
 
-                System.out.println("ходит игрок номер 2 (" + player2.getName() + "):");
-                player2.setNum(inputNum());
-                compareNum(guessNum, player2.getNum());
+            System.out.println("ходит игрок номер 2 (" + player2.getName() + "):");
+            player2.setNum(inputNum());
+            if (compareNum(guessNum, player2)) break;
         }
-        System.out.println("Вы угадали!");
     }
 
     private int inputNum() {
@@ -41,8 +40,18 @@ public class GuessNumber {
         return num;
     }
 
-    private void compareNum(int num1, int num2) {
-        if (num1 < num2) System.out.println("Вы ввели число больше, чем загадал компьютер");
-        else if (num1 > num2) System.out.println("Вы ввели число меньше, чем загадал компьютер");
+    private boolean compareNum(int num, Player player) {
+        boolean result = false;
+        if (num == player.getNum()) {
+            System.out.println("Вы (" + player.getName() + ") угадали!");
+            result = true;
+        } else if (num < player.getNum()) {
+            System.out.println("Вы ввели число больше, чем загадал компьютер");
+            result = false;
+        } else if (num > player.getNum()) {
+            System.out.println("Вы ввели число меньше, чем загадал компьютер");
+            result = false;
+        }
+        return result;
     }
 }
