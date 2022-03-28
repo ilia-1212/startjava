@@ -19,11 +19,11 @@ public class GuessNumber {
         while (!(guessNum == player1.getNum() || guessNum == player2.getNum())) {
                 System.out.println("ходит игрок номер 1 (" + player1.getName() + "):");
                 player1.setNum(inputNum());
-                comapreNum(guessNum, player1.getNum());
+                compareNum(guessNum, player1.getNum());
 
                 System.out.println("ходит игрок номер 2 (" + player2.getName() + "):");
                 player2.setNum(inputNum());
-                comapreNum(guessNum, player2.getNum());
+                compareNum(guessNum, player2.getNum());
         }
         System.out.println("Вы угадали!");
     }
@@ -41,7 +41,7 @@ public class GuessNumber {
         return num;
     }
 
-    private void comapreNum(int num1, int num2) {
+    private void compareNum(int num1, int num2) {
         if (num1 < num2) System.out.println("Вы ввели число больше, чем загадал компьютер");
         else if (num1 > num2) System.out.println("Вы ввели число меньше, чем загадал компьютер");
     }
