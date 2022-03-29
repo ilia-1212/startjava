@@ -41,12 +41,15 @@ public class GuessNumber {
     }
 
     private boolean compareNum(int num, Player player) {
-        boolean result = false;
         if (num == player.getNum()) {
             System.out.println(player.getName() + " Вы угадали!");
-            result = true;
-        } else if (num < player.getNum()) System.out.println(player.getName() + " Вы ввели число больше, чем загадал компьютер");
-        else System.out.println(player.getName() + " Вы ввели число меньше, чем загадал компьютер");
-        return result;
+            return true;
+        } else if (num < player.getNum()) {
+            System.out.println(player.getName() + " Вы ввели число больше, чем загадал компьютер");
+            return false;
+        } else {
+            System.out.println(player.getName() + " Вы ввели число меньше, чем загадал компьютер");
+            return false;
+        }
     }
 }
