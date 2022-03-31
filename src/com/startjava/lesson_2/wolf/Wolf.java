@@ -1,3 +1,5 @@
+package com.startjava.lesson_2.wolf;
+
 public class Wolf {
     //пол, кличка, вес, возраст, окрас
     private char sex;

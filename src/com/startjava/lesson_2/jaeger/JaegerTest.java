@@ -1,3 +1,5 @@
+package com.startjava.lesson_2.jaeger;
+
 public class JaegerTest {
     public static void main(String[] args) {
         Jaeger robotOne= new Jaeger("Striker Eureka","Mark-5", "Australia");

@@ -1,3 +1,5 @@
+package com.startjava.Lesson_1.CyclesTheme;
+
 public class CyclesTheme {
     public static void main(String[] args) {
         System.out.println("Цикл for");

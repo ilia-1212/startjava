@@ -1,3 +1,5 @@
+package com.startjava.Lesson_1.IfElseStatementTheme;
+
 public class IfElseStatementTheme {
 
     public static void main(String[] args) {
@@ -155,7 +157,7 @@ public class IfElseStatementTheme {
         if (profit > 0) {
             System.out.printf("Годовая прибыль: " + "%1$+9.2f" + "\n", profit);
         } else {
-            System.out.printf("Годовой убыток: " + "%1$-9.2f" + "\n", profitв);
+            System.out.printf("Годовой убыток: " + "%1$-9.2f" + "\n", profit);
         }
 
         //9. Определение существования треугольника

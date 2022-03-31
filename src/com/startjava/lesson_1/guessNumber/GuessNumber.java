@@ -1,3 +1,5 @@
+package com.startjava.Lesson_1.GuessNumber;
+
 public class GuessNumber {
     public static void main(String[] args) {
         int startRange = 0;

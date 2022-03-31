@@ -1,3 +1,5 @@
+package com.startjava.Lesson_1.VariablesTheme;
+
 public class VariablesTheme {
 
     public static void main(String[] args) {
