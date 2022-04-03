@@ -1,4 +1,4 @@
-package com.startjava.lesson_2.wolf;
+package com.startjava.lesson_2_3.wolf;
 
 import java.util.Scanner;
 
