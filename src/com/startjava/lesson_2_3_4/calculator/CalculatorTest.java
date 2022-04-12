@@ -1,5 +1,6 @@
 package com.startjava.lesson_2_3_4.calculator;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class CalculatorTest {
@@ -12,24 +13,23 @@ public class CalculatorTest {
         while (!playerAnswer.equals("no")) {
             Calculator cl = new Calculator();
 
-            System.out.print("Введите первое число, ");
-            cl.setNum1(inputNum());
+            System.out.print("Введите математическое выражение(используя пробелы): ");
+            String[] exps= inputExpression();
+            cl.setNum1(Integer.parseInt(exps[0]));
+            cl.setSign(exps[1]);
+            cl.setNum2(Integer.parseInt(exps[2]));
 
-            System.out.print("Введите знак операции, ");
-            cl.setSign(inputOperation());
-
-            System.out.print("Введите второе число, ");
-            cl.setNum2(inputNum());
-
-            cl.calculate();
-            System.out.printf("результат = " + "%.2f" + "\n", cl.getResult());
-
+            System.out.printf("результат = " + "%.2f" + "\n", cl.calculate());
             System.out.println("Хотите продолжить вычисления?");
             while (!(playerAnswer = scanner.nextLine()).equals("yes") && !playerAnswer.equals("no")) {
                     System.out.println("Допустимы только значения: (yes/no)");
             }
         }
         scanner.close();
+    }
+
+    private  static String[] inputExpression() {
+        return scanner.nextLine().split(" ");
     }
 
     private static int inputNum() {

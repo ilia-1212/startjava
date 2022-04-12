@@ -18,11 +18,12 @@ public class Calculator {
         this.num2 = num2;
     }
 
-    public float getResult() {
+    public float calculate() {
+        calculateExpression();
         return result;
     }
 
-    public void calculate() {
+    public void calculateExpression() {
         switch (mathSign) {
             case "+" :
                 result = num1 + num2;
@@ -37,7 +38,7 @@ public class Calculator {
                 result = (float) num1 / num2;
                 break;
             case "^" :
-                result = pow();
+                result = (float) Math.pow(num1, num2);
                 break;
             case "%" :
                 result = num1 % num2;
@@ -45,13 +46,5 @@ public class Calculator {
             default :
                 result = 0;
         }
-    }
-
-    private float pow() {
-        result = 1;
-        for (int i = 1; i <= num2; i++) {
-            result *= num1;
-        }
-        return result;
     }
 }
