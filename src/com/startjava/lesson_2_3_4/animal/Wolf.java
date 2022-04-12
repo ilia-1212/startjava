@@ -1,4 +1,4 @@
-package com.startjava.lesson_2_3_4.wolf;
+package com.startjava.lesson_2_3_4.animal;
 
 public class Wolf {
     //пол, кличка, вес, возраст, окрас
