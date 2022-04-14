@@ -9,8 +9,9 @@ public class Player {
     private int attempt;
     // текущее введенное число
     private int num;
+
     // массив введенных чисел
-    public int[] nums;
+    private int[] nums;
     //общее игровое кол-во попыток
     public static final int MAX_ATTEMPT = 10;
 
@@ -38,6 +39,10 @@ public class Player {
     public void setNum(int num) {
         this.num = num;
         if (attempt > 0) nums[attempt - 1] = num;
+    }
+
+    public int[] getNums() {
+        return nums;
     }
 
     public void incAttempt() {

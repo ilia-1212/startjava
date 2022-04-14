@@ -51,7 +51,7 @@ public class GuessNumber {
     }
 
     public void resetGame(Player player) {
-        Arrays.fill(player.nums, 0, player.getAttempt(), 0);
+        Arrays.fill(player.getNums(), 0, player.getAttempt(), 0);
         player.setAttempt(0);
     }
 
