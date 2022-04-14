@@ -1,15 +1,34 @@
 package com.startjava.lesson_2_3_4.game;
 
+import java.util.Arrays;
+
 public class Player {
+    // имя игрока
     private String name;
+    // счетчик попыток игрока
+    private int attempt;
+    // текущее введенное число
     private int num;
+    // массив введенных чисел
+    public int[] nums;
+    //общее игровое кол-во попыток
+    public static final int MAX_ATTEMPT = 3;
 
     public Player(String name) {
         this.name = name;
+        this.nums = new int[MAX_ATTEMPT];
     }
 
     public String getName() {
         return name;
+    }
+
+    public int getAttempt() {
+        return attempt;
+    }
+
+    public void setAttempt(int attempt) {
+        this.attempt = attempt;
     }
 
     public int getNum() {
@@ -18,5 +37,25 @@ public class Player {
 
     public void setNum(int num) {
         this.num = num;
+        if (attempt > 0) nums[attempt - 1] = num;
+    }
+
+    public void incAttempt() {
+        attempt++;
+    }
+
+    public boolean isOverAttempt() {
+        return (attempt > MAX_ATTEMPT);
+    }
+
+    @Override
+    public String toString() {
+        int[] cropNums = Arrays.copyOf(nums, attempt);
+
+        String str = "";
+        for(int number:  cropNums) {
+            str += Integer.toString(number) + " ";
+        }
+        return str;
     }
 }

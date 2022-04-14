@@ -11,16 +11,15 @@ public class CalculatorTest {
         String playerAnswer = "";
 
         while (!playerAnswer.equals("no")) {
-            Calculator cl = new Calculator();
-
-            System.out.print("Введите математическое выражение(используя пробелы): ");
+            System.out.print("Введите математическое выражение (используя пробелы): ");
             String[] exps= inputExpression();
-            cl.setNum1(Integer.parseInt(exps[0]));
-            cl.setSign(exps[1]);
-            cl.setNum2(Integer.parseInt(exps[2]));
 
-            System.out.printf("результат = " + "%.2f" + "\n", cl.calculate());
-            System.out.println("Хотите продолжить вычисления?");
+            Calculator.setNum1(Integer.parseInt(exps[0]));
+            Calculator.setSign(exps[1]);
+            Calculator.setNum2(Integer.parseInt(exps[2]));
+
+            System.out.printf("результат = " + "%.2f" + "\n", Calculator.calculate());
+            System.out.println("Хотите продолжить вычисления (yes/no)?");
             while (!(playerAnswer = scanner.nextLine()).equals("yes") && !playerAnswer.equals("no")) {
                     System.out.println("Допустимы только значения: (yes/no)");
             }
@@ -29,37 +28,38 @@ public class CalculatorTest {
     }
 
     private  static String[] inputExpression() {
-        return scanner.nextLine().split(" ");
+        String[] lines;
+        do {
+            System.out.println("число должно быть целое и положительное, диапазон (0, 100], а знак операции (+-*/^%)");
+            lines = scanner.nextLine().split(" ");
+        } while (isNonCheckedNum(lines[0]) || isNonCheckedOperation(lines[1]) || isNonCheckedNum(lines[2]));
+        return lines;
     }
 
-    private static int inputNum() {
-        int num;
-        do {
-            System.out.println("должно быть целое и положительное, (0, 100]");
-            while (!scanner.hasNextInt()) {
-                System.out.println("Введено не число, повторите ввод");
-                scanner.next();
-            }
-            num = scanner.nextInt();
-        } while (num <= 0 || num > 100);
-        return num;
+    private static boolean isNonCheckedNum(String str) {
+        boolean isNonChecked = false;
+        if (str == null || str.isEmpty())   isNonChecked = true;
+        for(int i = 0; i < str.length(); i++) {
+            if  (!Character.isDigit(str.charAt(i)))  isNonChecked = true;
+        }
+
+        if (isNonChecked) {
+            System.out.println("Ошибка в числе [" + str + "]");
+        }
+        else {
+            isNonChecked = !(Integer.parseInt(str) >= 0 && Integer.parseInt(str) < 100);
+        }
+        return isNonChecked;
     }
 
-    private static String inputOperation() {
-        String sign;
-        do {
-            System.out.println("допустимо значение из вариантов: (+-*/^%)");
-            while (!scanner.hasNextLine()) {
-                System.out.println("Введен не символ операции, повторите ввод");
-                scanner.next();
-            }
-            sign = scanner.nextLine();
-        } while (!sign.equals("+") &&
-                    !sign.equals("-") &&
-                    !sign.equals("*") &&
-                    !sign.equals("/") &&
-                    !sign.equals("^") &&
-                    !sign.equals("%"));
-        return sign;
+    private static boolean isNonCheckedOperation(String str) {
+        boolean isNonChecked =  !(str.equals("+") ||
+                str.equals("-") ||
+                str.equals("*") ||
+                str.equals("/") ||
+                str.equals("^") ||
+                str.equals("%"));
+        if (isNonChecked) System.out.println("Ошибка в знаке операции [" + str + "]");
+        return isNonChecked;
     }
 }
