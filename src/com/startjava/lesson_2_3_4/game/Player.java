@@ -13,7 +13,7 @@ public class Player {
     // массив введенных чисел
     private int[] nums;
     //общее игровое кол-во попыток
-    public static final int MAX_ATTEMPT = 10;
+    public static final int MAX_ATTEMPT = 3;
 
     public Player(String name) {
         this.name = name;
@@ -38,7 +38,9 @@ public class Player {
 
     public void setNum(int num) {
         this.num = num;
-        if (attempt > 0) nums[attempt - 1] = num;
+        if (attempt > 0 && (num > 0 && num <= 100)) {
+            nums[attempt - 1] = num;
+        }
     }
 
     public int[] getNums() {

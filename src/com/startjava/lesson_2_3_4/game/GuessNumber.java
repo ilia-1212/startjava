@@ -57,27 +57,20 @@ public class GuessNumber {
 
     private int inputNum() {
         int num;
-        do {
             System.out.println("Введите число, оно должно быть целое положительное, (0, 100]");
             while (!scanner.hasNextInt()) {
                 System.out.println("Введено не число, повторите ввод");
                 scanner.next();
             }
             num = scanner.nextInt();
-        } while (num <= 0 || num > 100);
         return num;
     }
 
     private boolean compareNum(int num, Player player) {
-        if (num == player.getNum()) {
-            System.out.println("Игрок " + player.getName() + " угадал число " + num + " с " + player.getAttempt() + " попытки");
-            return true;
-        } else if (num < player.getNum()) {
-            System.out.println(player.getName() + " Вы ввели число больше, чем загадал компьютер");
-            return false;
-        } else {
-            System.out.println(player.getName() + " Вы ввели число меньше, чем загадал компьютер");
-            return false;
-        }
+        boolean result = false;
+        result = (num == player.getNum()) ? true : (num < player.getNum()) ? false : false;
+        String str;
+        str = (num == player.getNum()) ? "Игрок " + player.getName() + " угадал число " + num + " с " + player.getAttempt() + " попытки" : (num < player.getNum()) ? player.getName() + " Вы ввели число больше, чем загадал компьютер" : player.getName() + " Вы ввели число меньше, чем загадал компьютер";
+        return result;
     }
 }
