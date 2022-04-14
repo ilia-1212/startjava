@@ -18,7 +18,7 @@ public class GuessNumber {
         scanner = new Scanner(System.in);
 
         guessNum = (int) (Math.random() * 100 + 1);
-        System.out.println("у каждого игрока по " + Player.MAX_ATTEMPT + " попыток " + guessNum);
+        System.out.println("у каждого игрока по " + Player.MAX_ATTEMPT + " попыток ");
         while (true) {
             System.out.print("Ходит игрок номер 1 :" + player1.getName() + "; ");
             player1.incAttempt();

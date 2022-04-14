@@ -12,7 +12,7 @@ public class Player {
     // массив введенных чисел
     public int[] nums;
     //общее игровое кол-во попыток
-    public static final int MAX_ATTEMPT = 3;
+    public static final int MAX_ATTEMPT = 10;
 
     public Player(String name) {
         this.name = name;
