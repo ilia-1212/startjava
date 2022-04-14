@@ -47,7 +47,7 @@ public class CalculatorTest {
             System.out.println("Ошибка в числе [" + str + "]");
         }
         else {
-            isNonChecked = !(Integer.parseInt(str) >= 0 && Integer.parseInt(str) < 100);
+            isNonChecked = !(Integer.parseInt(str) > 0 && Integer.parseInt(str) <= 100);
         }
         return isNonChecked;
     }
