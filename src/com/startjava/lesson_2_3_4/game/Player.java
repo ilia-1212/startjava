@@ -3,17 +3,17 @@ package com.startjava.lesson_2_3_4.game;
 import java.util.Arrays;
 
 public class Player {
+    //общее игровое кол-во попыток
+    public static final int MAX_ATTEMPT = 3;
+
     // имя игрока
     private String name;
     // счетчик попыток игрока
     private int attempt;
     // текущее введенное число
     private int num;
-
     // массив введенных чисел
     private int[] nums;
-    //общее игровое кол-во попыток
-    public static final int MAX_ATTEMPT = 3;
 
     public Player(String name) {
         this.name = name;
