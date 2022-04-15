@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Player {
     //общее игровое кол-во попыток
-    public static final int MAX_ATTEMPT = 3;
+    public static final int MAX_ATTEMPT = 10;
 
     // имя игрока
     private String name;
