@@ -12,13 +12,7 @@ public class CalculatorTest {
 
         while (!playerAnswer.equals("no")) {
             System.out.print("Введите математическое выражение (используя пробелы): ");
-            String[] exps= inputExpression();
-
-            Calculator.setNum1(Integer.parseInt(exps[0]));
-            Calculator.setSign(exps[1]);
-            Calculator.setNum2(Integer.parseInt(exps[2]));
-
-            System.out.printf("результат = " + "%.2f" + "\n", Calculator.calculate());
+            System.out.printf("результат = " + "%.2f" + "\n", Calculator.calculate(inputExpression()));
             System.out.println("Хотите продолжить вычисления (yes/no)?");
             while (!(playerAnswer = scanner.nextLine()).equals("yes") && !playerAnswer.equals("no")) {
                     System.out.println("Допустимы только значения: (yes/no)");
@@ -27,7 +21,7 @@ public class CalculatorTest {
         scanner.close();
     }
 
-    private  static String[] inputExpression() {
+    private static String[] inputExpression() {
         String[] lines;
         do {
             System.out.println("число должно быть целое и положительное, диапазон (0, 100], а знак операции (+-*/^%)");
