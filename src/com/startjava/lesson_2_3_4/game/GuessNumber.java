@@ -4,38 +4,33 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class GuessNumber {
+    public static final int MAX_ATTEMPT = 3;
+    public static final int MAX_PLAYERS = 3;
     private static Scanner scanner;
-    private Player player1;
-    private Player player2;
     private Player[] players;
 
-    public GuessNumber(Player player1, Player player2) {
-        this.player1 = player1;
-        this.player2 = player2;
-    }
     public GuessNumber(Player[] players) {
-        this.players = Arrays.copyOf(players,players.length);
+        this.players = players;
     }
 
     public void guess() {
         int guessNum = 0;
-        //int queuePlayer = 0;
         boolean isFinish = true;
         scanner = new Scanner(System.in);
 
+        resetGame(players);
         guessNum = (int) (Math.random() * 100 + 1);
-        //queuePlayer = (int) (Math.random() * 3);
-        System.out.println("у каждого игрока по " + Player.MAX_ATTEMPT + " попыток ");
+        System.out.println("у каждого игрока по " + MAX_ATTEMPT + " попыток ");
         while (isFinish) {
 
             for(Player currentPlayer: players) {
-                System.out.print("Ходит игрок: " + currentPlayer.getName() + "; ");
+                System.out.print("Ходит игрок " + currentPlayer.getName() + "; ");
                 currentPlayer.incAttempt();
                 if (currentPlayer.isOverAttempt()) {
                     System.out.println("У " + currentPlayer.getName() + " закончились попытки");
                 } else {
                     System.out.println("У " + currentPlayer.getName() + " попытка " + currentPlayer.getAttempt());
-                    currentPlayer.setNum(inputNum());
+                    currentPlayer.addNums(inputNum());
                     if (compareNum(guessNum, currentPlayer)) {
                         isFinish = false;
                         break;
@@ -50,13 +45,8 @@ public class GuessNumber {
             }
         }
         for(Player currentPlayer: players) {
-            System.out.println("Игрок " + currentPlayer.getName() + " выбирал числа: " + currentPlayer.toString());
+            System.out.println("Игрок " + currentPlayer.getName() + " выбирал числа: " + Arrays.toString(currentPlayer.getNums()));
         }
-    }
-
-    public void resetGame(Player player) {
-        Arrays.fill(player.getNums(), 0, player.getAttempt(), 0);
-        player.setAttempt(0);
     }
 
     public void resetGame(Player[] players) {
@@ -68,20 +58,28 @@ public class GuessNumber {
 
     private int inputNum() {
         int num;
-            System.out.println("Введите число, оно должно быть целое положительное, (0, 100]");
-            while (!scanner.hasNextInt()) {
-                System.out.println("Введено не число, повторите ввод");
-                scanner.next();
-            }
-            num = scanner.nextInt();
+        System.out.print("Введите число, оно должно быть целое положительное, (0, 100]: ");
+        while (!scanner.hasNextInt()) {
+            System.out.println("Введено не число, повторите ввод");
+            scanner.next();
+        }
+        num = scanner.nextInt();
         return num;
     }
 
     private boolean compareNum(int num, Player player) {
         boolean result = false;
-        result = (num == player.getNum()) ? true : (num < player.getNum()) ? false : false;
         String str;
-        str = (num == player.getNum()) ? "Игрок " + player.getName() + " угадал число " + num + " с " + player.getAttempt() + " попытки" : (num < player.getNum()) ? player.getName() + " Вы ввели число больше, чем загадал компьютер" : player.getName() + " Вы ввели число меньше, чем загадал компьютер";
+         if (num == player.getNums()[player.getAttempt() - 1]) {
+             result =true;
+             str = "Игрок " + player.getName() + " угадал число " + num + " с " + player.getAttempt() + " попытки";
+         } else if (num < player.getNums()[player.getAttempt() - 1]) {
+             result =false;
+             str = "Вы ввели число больше, чем загадал компьютер";
+         }  else {
+             result =false;
+             str = "Вы ввели число меньше, чем загадал компьютер";
+         }
         System.out.println(str);
         return result;
     }

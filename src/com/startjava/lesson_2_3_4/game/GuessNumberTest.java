@@ -5,26 +5,17 @@ import java.util.Scanner;
 
 public class GuessNumberTest {
     public static void main(String[] args) {
-        Player[] players = new Player[3];
+        Player[] players = new Player[GuessNumber.MAX_PLAYERS];
         Scanner scanner = new Scanner(System.in);
         System.out.println("-Угадай число-");
 
-        System.out.print("Введите имя игрока 1: ");
-        Player player1 = new Player(scanner.nextLine());
-        players[0] = player1;
-
-        System.out.print("Введите имя игрока 2: ");
-        Player player2 = new Player(scanner.nextLine());
-        players[1] = player2;
-
-        System.out.print("Введите имя игрока 3: ");
-        Player player3 = new Player(scanner.nextLine());
-        players[2] = player3;
-
+        for(int i = 0; i < GuessNumber.MAX_PLAYERS; i++) {
+            System.out.print("Введите имя игрока " + (i + 1) + ": ");
+            players[i] = new Player(scanner.nextLine());
+        }
         GuessNumber game = new GuessNumber(players);
         String playerAnswer = "";
         while (!playerAnswer.equals("no")) {
-            game.resetGame(players);
             game.guess();
             System.out.print("Хотите продолжить игру? [yes/no]: ");
             while (isContinued(playerAnswer = scanner.nextLine())) {
