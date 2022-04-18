@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class GuessNumber {
     public static final int MAX_ATTEMPT = 10;
     private static Scanner scanner;
-    private static int guessNum = 0;
+    private int guessNum = 0;
     private Player[] players;
 
     public GuessNumber(Player[] players) {
@@ -19,7 +19,7 @@ public class GuessNumber {
 
         resetGame(players);
         guessNum = (int) (Math.random() * 100 + 1);
-        System.out.println("у каждого игрока по " + MAX_ATTEMPT + " попыток ");
+        System.out.println("у каждого игрока по " + MAX_ATTEMPT + " попыток " + guessNum);
         while (isFinish) {
             for(Player currentPlayer: players) {
                 System.out.print("Ходит игрок " + currentPlayer.getName() + "; ");
@@ -44,6 +44,7 @@ public class GuessNumber {
         for(Player currentPlayer: players) {
             System.out.println("Игрок " + currentPlayer.getName() + " выбирал числа: " + Arrays.toString(currentPlayer.getNums()));
         }
+
     }
 
     private void resetGame(Player[] players) {
@@ -68,6 +69,7 @@ public class GuessNumber {
          if (num == player.getCurrentNum()) {
              textCompare = "Игрок " + player.getName() + " угадал число " + num + " с " + player.getAttempt() + " попытки";
              System.out.println(textCompare);
+             player.incWinCount();
              return true;
          }
         textCompare = (num < player.getCurrentNum()) ? "Вы ввели число больше" : "Вы ввели число меньше";

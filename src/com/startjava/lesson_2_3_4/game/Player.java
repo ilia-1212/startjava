@@ -6,6 +6,7 @@ public class Player {
     private String name;
     private int attempt;
     private int[] enteredNums;
+    private int winCount;
 
     public Player(String name) {
         this.name = name;
@@ -36,6 +37,14 @@ public class Player {
 
     public int getCurrentNum() {
         return enteredNums[attempt - 1];
+    }
+
+    public int getWinCount() {
+        return winCount;
+    }
+
+    public void incWinCount() {
+        winCount++;
     }
 
     public void incAttempt() {
