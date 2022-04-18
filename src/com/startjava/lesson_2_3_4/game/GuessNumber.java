@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class GuessNumber {
-    public static final int MAX_ATTEMPT = 3;
+    public static final int MAX_ATTEMPT = 10;
     private static Scanner scanner;
     private static int guessNum = 0;
     private Player[] players;
@@ -21,7 +21,6 @@ public class GuessNumber {
         guessNum = (int) (Math.random() * 100 + 1);
         System.out.println("у каждого игрока по " + MAX_ATTEMPT + " попыток ");
         while (isFinish) {
-
             for(Player currentPlayer: players) {
                 System.out.print("Ходит игрок " + currentPlayer.getName() + "; ");
                 currentPlayer.incAttempt();
@@ -35,7 +34,6 @@ public class GuessNumber {
                         break;
                     }
                 }
-
                 if (currentPlayer.isOverAttempt()) {
                     currentPlayer.setAttempt(currentPlayer.getAttempt() - 1);
                     isFinish = false;
@@ -66,14 +64,15 @@ public class GuessNumber {
     }
 
     private boolean compareNum(int num, Player player) {
+        String textCompare;
          if (num == player.getCurrentNum()) {
-             System.out.println("Игрок " + player.getName() + " угадал число " + num + " с " + player.getAttempt() + " попытки");
+             textCompare = "Игрок " + player.getName() + " угадал число " + num + " с " + player.getAttempt() + " попытки";
+             System.out.println(textCompare);
              return true;
-         } else if (num < player.getCurrentNum()) {
-             System.out.println("Вы ввели число больше, чем загадал компьютер");
-         }  else {
-             System.out.println("Вы ввели число меньше, чем загадал компьютер");
          }
+        textCompare = (num < player.getCurrentNum()) ? "Вы ввели число больше" : "Вы ввели число меньше";
+        textCompare += ", чем загадал компьютер";
+        System.out.println(textCompare);
         return false;
     }
 }
