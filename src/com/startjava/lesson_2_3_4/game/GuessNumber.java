@@ -5,18 +5,17 @@ import java.util.Scanner;
 
 public class GuessNumber {
     public static final int MAX_ATTEMPT = 3;
-    public static final int MAX_PLAYERS = 3;
     private static Scanner scanner;
+    private static int guessNum = 0;
     private Player[] players;
 
     public GuessNumber(Player[] players) {
+        scanner = new Scanner(System.in);
         this.players = players;
     }
 
     public void guess() {
-        int guessNum = 0;
         boolean isFinish = true;
-        scanner = new Scanner(System.in);
 
         resetGame(players);
         guessNum = (int) (Math.random() * 100 + 1);
@@ -30,7 +29,7 @@ public class GuessNumber {
                     System.out.println("У " + currentPlayer.getName() + " закончились попытки");
                 } else {
                     System.out.println("У " + currentPlayer.getName() + " попытка " + currentPlayer.getAttempt());
-                    currentPlayer.addNums(inputNum());
+                    currentPlayer.addNum(inputNum());
                     if (compareNum(guessNum, currentPlayer)) {
                         isFinish = false;
                         break;
@@ -49,10 +48,9 @@ public class GuessNumber {
         }
     }
 
-    public void resetGame(Player[] players) {
-        for(Player player : players) {
-            Arrays.fill(player.getNums(), 0, player.getAttempt(), 0);
-            player.setAttempt(0);
+    private void resetGame(Player[] players) {
+        for(Player player: players) {
+            player.resetPlayer();
         }
     }
 
@@ -68,19 +66,14 @@ public class GuessNumber {
     }
 
     private boolean compareNum(int num, Player player) {
-        boolean result = false;
-        String str;
-         if (num == player.getNums()[player.getAttempt() - 1]) {
-             result =true;
-             str = "Игрок " + player.getName() + " угадал число " + num + " с " + player.getAttempt() + " попытки";
-         } else if (num < player.getNums()[player.getAttempt() - 1]) {
-             result =false;
-             str = "Вы ввели число больше, чем загадал компьютер";
+         if (num == player.getCurrentNum()) {
+             System.out.println("Игрок " + player.getName() + " угадал число " + num + " с " + player.getAttempt() + " попытки");
+             return true;
+         } else if (num < player.getCurrentNum()) {
+             System.out.println("Вы ввели число больше, чем загадал компьютер");
          }  else {
-             result =false;
-             str = "Вы ввели число меньше, чем загадал компьютер";
+             System.out.println("Вы ввели число меньше, чем загадал компьютер");
          }
-        System.out.println(str);
-        return result;
+        return false;
     }
 }

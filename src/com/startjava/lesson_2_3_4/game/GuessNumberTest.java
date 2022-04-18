@@ -4,15 +4,14 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class GuessNumberTest {
-    public static void main(String[] args) {
-        Player[] players = new Player[GuessNumber.MAX_PLAYERS];
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("-Угадай число-");
+    public static final int MAX_PLAYERS = 3;
 
-        for(int i = 0; i < GuessNumber.MAX_PLAYERS; i++) {
-            System.out.print("Введите имя игрока " + (i + 1) + ": ");
-            players[i] = new Player(scanner.nextLine());
-        }
+    private static Scanner scanner = new Scanner(System.in);
+    private static Player[] players = new Player[MAX_PLAYERS];
+
+    public static void main(String[] args) {
+        System.out.println("-Угадай число-");
+        createPlayers();
         GuessNumber game = new GuessNumber(players);
         String playerAnswer = "";
         while (!playerAnswer.equals("no")) {
@@ -23,6 +22,13 @@ public class GuessNumberTest {
             }
         }
         scanner.close();
+    }
+
+    private static void createPlayers() {
+        for(int i = 0; i < MAX_PLAYERS; i++) {
+            System.out.print("Введите имя игрока " + (i + 1) + ": ");
+            players[i] = new Player(scanner.nextLine());
+        }
     }
 
     private static boolean isContinued(String answer) {
