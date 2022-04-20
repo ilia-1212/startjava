@@ -1,7 +1,5 @@
 package com.startjava.lesson_final.books;
 
-import com.startjava.lesson_final.books.BookShell;
-
 import java.util.Scanner;
 
 public class BookShellMain {

@@ -1,7 +1,5 @@
 package com.startjava.lesson_final.books;
 
-import com.startjava.lesson_final.books.Book;
-
 public class BookShell {
     private static int amountBooks;
     private static Book[] books = new Book[10];
