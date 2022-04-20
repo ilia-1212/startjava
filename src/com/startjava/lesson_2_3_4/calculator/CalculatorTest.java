@@ -9,11 +9,11 @@ public class CalculatorTest {
         Scanner scanner = new Scanner(System.in);
         while (!playerAnswer.equals("no")) {
             System.out.println("Введите математическое выражение (используя пробелы): ");
-            float result = -1f;
-            while (result == -1f) {
+            float result = 0;
+            do {
                 System.out.println("число должно быть целое и положительное, диапазон (0, 100], а знак операции (+-*/^%)");
                 result = Calculator.calculate(scanner.nextLine());
-            }
+            } while (result == -1f);
             System.out.printf("результат = " + "%.2f" + "\n", result);
             System.out.println("Хотите продолжить вычисления (yes/no)?");
             while (checkAnswer(scanner.nextLine())) {
