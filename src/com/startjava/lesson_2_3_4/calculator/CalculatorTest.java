@@ -3,23 +3,27 @@ package com.startjava.lesson_2_3_4.calculator;
 import java.util.Scanner;
 
 public class CalculatorTest {
-    private static Scanner scanner;
     private static String playerAnswer = "";
 
     public static void main(String[] args) {
-        scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         while (!playerAnswer.equals("no")) {
             System.out.println("Введите математическое выражение (используя пробелы): ");
-            System.out.printf("результат = " + "%.2f" + "\n", Calculator.calculate(scanner.nextLine()));
+            float result = -1f;
+            while (result == -1f) {
+                System.out.println("число должно быть целое и положительное, диапазон (0, 100], а знак операции (+-*/^%)");
+                result = Calculator.calculate(scanner.nextLine());
+            }
+            System.out.printf("результат = " + "%.2f" + "\n", result);
             System.out.println("Хотите продолжить вычисления (yes/no)?");
-            while (checkAnswer()) {
+            while (checkAnswer(scanner.nextLine())) {
                     System.out.println("Допустимы только значения: (yes/no)");
             }
         }
         scanner.close();
     }
 
-    private static boolean checkAnswer() {
-        return !(playerAnswer = scanner.nextLine()).equals("yes") && !playerAnswer.equals("no");
+    private static boolean checkAnswer(String Answer) {
+        return !(playerAnswer = Answer).equals("yes") && !playerAnswer.equals("no");
     }
 }

@@ -9,42 +9,9 @@ public class Calculator {
     private static float result;
     private static String[] mathExpressions;
 
-    public static void addMathExpression(String mathExpression) {
-        Calculator.mathExpressions = mathExpression.split(" ");
-    }
-
-    public static boolean checkExpression() {
-        return checkValidNumber(mathExpressions[0]) || checkValidSign(mathExpressions[1]) || checkValidNumber(mathExpressions[2]);
-    }
-
-    private static boolean checkValidNumber(String number) {
-        boolean isNonChecked = false;
-        if (number == null || number.isEmpty()) isNonChecked = true;
-        for(int i = 0; i < number.length(); i++) {
-            if (!Character.isDigit(number.charAt(i))) isNonChecked = true;
-        }
-
-        if (isNonChecked) {
-            System.out.println("Ошибка в числе [" + number + "]");
-        } else {
-            isNonChecked = !(Integer.parseInt(number) > 0 && Integer.parseInt(number) <= 100);
-        }
-        return isNonChecked;
-    }
-
-    private static boolean checkValidSign(String Sign) {
-        boolean isNonChecked = !(Sign.equals("+") ||
-                Sign.equals("-") ||
-                Sign.equals("*") ||
-                Sign.equals("/") ||
-                Sign.equals("^") ||
-                Sign.equals("%"));
-        if (isNonChecked) System.out.println("Ошибка в знаке операции [" + Sign + "]");
-        return isNonChecked;
-    }
-
-    public static float calculate(String textExpression) {
-        inputExpression(textExpression);
+    public static float calculate(String Expression) {
+        mathExpressions = Expression.split(" ");
+        if (!checkExpression()) return -1;
         num1 = Integer.parseInt(mathExpressions[0]);
         mathSign = mathExpressions[1];
         num2 = Integer.parseInt(mathExpressions[2]);
@@ -60,10 +27,33 @@ public class Calculator {
         return result;
     }
 
-    private static void inputExpression(String textExpression) {
-        do {
-            System.out.println("число должно быть целое и положительное, диапазон (0, 100], а знак операции (+-*/^%)");
-            addMathExpression(textExpression);
-        } while (checkExpression());
+    private static boolean checkExpression() {
+        return checkValidNumber(mathExpressions[0]) && checkValidSign(mathExpressions[1]) && checkValidNumber(mathExpressions[2]);
+    }
+
+    private static boolean checkValidNumber(String number) {
+        boolean isNonChecked = false;
+        if (number == null || number.isEmpty()) isNonChecked = true;
+        for(int i = 0; i < number.length(); i++) {
+            if (!Character.isDigit(number.charAt(i))) isNonChecked = true;
+        }
+
+        if (isNonChecked) {
+            System.out.println("Ошибка в числе [" + number + "]");
+        } else {
+            isNonChecked = !(Integer.parseInt(number) > 0 && Integer.parseInt(number) <= 100);
+        }
+        return !isNonChecked;
+    }
+
+    private static boolean checkValidSign(String Sign) {
+        boolean isNonChecked = !(Sign.equals("+") ||
+                Sign.equals("-") ||
+                Sign.equals("*") ||
+                Sign.equals("/") ||
+                Sign.equals("^") ||
+                Sign.equals("%"));
+        if (isNonChecked) System.out.println("Ошибка в знаке операции [" + Sign + "]");
+        return !isNonChecked;
     }
 }
