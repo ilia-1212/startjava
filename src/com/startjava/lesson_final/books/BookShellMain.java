@@ -43,7 +43,7 @@ public class BookShellMain {
         return result;
     }
 
-    public static void process(String itemMenu) {
+    private static void process(String itemMenu) {
         switch (itemMenu) {
             case "1" -> {
                 System.out.print("введите через пробел параметры книги (автор, название, год издания): ");
