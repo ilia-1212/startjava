@@ -8,7 +8,7 @@ public class BookShell {
         String[] bookRecord;
         bookRecord = bookInfo.split(" ");
         for(int i = 0; i < books.length; i++) {
-            if (books[i] != null && (books[i].author).equals(bookRecord[0]) && (books[i].title).equals(bookRecord[1]) && (books[i].yearPublish).equals(bookRecord[2])) return i;
+            if (books[i] != null && (books[i].getAuthor()).equals(bookRecord[0]) && (books[i].getTitle()).equals(bookRecord[1]) && (books[i].getYearPublish()).equals(bookRecord[2])) return i;
         }
         return -1;
     }
