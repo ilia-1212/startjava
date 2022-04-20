@@ -1,6 +1,6 @@
-package com.startjava.lesson_final.bookShell;
+package com.startjava.lesson_final.books;
 
-import java.util.Arrays;
+import com.startjava.lesson_final.books.Book;
 
 public class BookShell {
     private static int amountBooks;

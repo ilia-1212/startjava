@@ -1,4 +1,4 @@
-package com.startjava.lesson_final.bookShell;
+package com.startjava.lesson_final.books;
 
 public class Book {
     String author;

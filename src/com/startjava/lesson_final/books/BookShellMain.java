@@ -1,6 +1,7 @@
-package com.startjava.lesson_final.bookShell;
+package com.startjava.lesson_final.books;
 
-import java.util.Arrays;
+import com.startjava.lesson_final.books.BookShell;
+
 import java.util.Scanner;
 
 public class BookShellMain {
