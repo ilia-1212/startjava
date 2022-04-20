@@ -38,7 +38,7 @@ public class BookShellMain {
                 userAnswer.equals("6"));
         if (result) {
             process(userAnswer);
-        } else System.out.println("только цыфры 1-6");
+        } else System.out.println("только цифры 1-6");
 
         return result;
     }
