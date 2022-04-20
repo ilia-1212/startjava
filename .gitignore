@@ -2,5 +2,5 @@ out/**/*.class
 .idea
 *.iml
 src/**/array/*.java
-src/**/bookShell/*.java
+--src/**/bookShell/*.java
 
