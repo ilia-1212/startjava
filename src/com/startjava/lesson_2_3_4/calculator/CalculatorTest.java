@@ -9,7 +9,7 @@ public class CalculatorTest {
         Scanner scanner = new Scanner(System.in);
         while (!playerAnswer.equals("no")) {
             System.out.println("Введите математическое выражение (используя пробелы): ");
-            float result = 0;
+            float result = 0f;
             do {
                 System.out.println("число должно быть целое и положительное, диапазон (0, 100], а знак операции (+-*/^%)");
                 result = Calculator.calculate(scanner.nextLine());

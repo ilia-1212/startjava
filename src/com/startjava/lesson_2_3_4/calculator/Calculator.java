@@ -11,7 +11,7 @@ public class Calculator {
 
     public static float calculate(String Expression) {
         mathExpressions = Expression.split(" ");
-        if (!checkExpression()) return -1;
+        if (!checkExpression()) return -1f;
         num1 = Integer.parseInt(mathExpressions[0]);
         mathSign = mathExpressions[1];
         num2 = Integer.parseInt(mathExpressions[2]);
@@ -22,7 +22,7 @@ public class Calculator {
             case "/" ->  (float) num1 / num2;
             case "^" ->  (float) Math.pow(num1, num2);
             case "%" ->  num1 % num2;
-            default -> 0;
+            default -> 0f;
         };
         return result;
     }
