@@ -43,8 +43,8 @@ public class Calculator {
         return isNonChecked;
     }
 
-    public static float calculate() {
-
+    public static float calculate(String textExpression) {
+        inputExpression(textExpression);
         num1 = Integer.parseInt(mathExpressions[0]);
         mathSign = mathExpressions[1];
         num2 = Integer.parseInt(mathExpressions[2]);
@@ -58,5 +58,12 @@ public class Calculator {
             default -> 0;
         };
         return result;
+    }
+
+    private static void inputExpression(String textExpression) {
+        do {
+            System.out.println("число должно быть целое и положительное, диапазон (0, 100], а знак операции (+-*/^%)");
+            addMathExpression(textExpression);
+        } while (checkExpression());
     }
 }

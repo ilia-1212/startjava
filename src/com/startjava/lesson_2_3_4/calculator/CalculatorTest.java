@@ -10,21 +10,13 @@ public class CalculatorTest {
         scanner = new Scanner(System.in);
         while (!playerAnswer.equals("no")) {
             System.out.println("Введите математическое выражение (используя пробелы): ");
-            inputExpression();
-            System.out.printf("результат = " + "%.2f" + "\n", Calculator.calculate());
+            System.out.printf("результат = " + "%.2f" + "\n", Calculator.calculate(scanner.nextLine()));
             System.out.println("Хотите продолжить вычисления (yes/no)?");
             while (checkAnswer()) {
                     System.out.println("Допустимы только значения: (yes/no)");
             }
         }
         scanner.close();
-    }
-
-    private static void inputExpression() {
-        do {
-            System.out.println("число должно быть целое и положительное, диапазон (0, 100], а знак операции (+-*/^%)");
-            Calculator.addMathExpression(scanner.nextLine());
-        } while (Calculator.checkExpression());
     }
 
     private static boolean checkAnswer() {
