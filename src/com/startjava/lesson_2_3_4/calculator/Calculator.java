@@ -1,7 +1,5 @@
 package com.startjava.lesson_2_3_4.calculator;
 
-import java.util.Arrays;
-
 public class Calculator {
     private static String mathSign;
     private static int num1;
@@ -9,8 +7,8 @@ public class Calculator {
     private static float result;
     private static String[] mathExpressions;
 
-    public static float calculate(String Expression) {
-        mathExpressions = Expression.split(" ");
+    public static float calculate(String expression) {
+        mathExpressions = expression.split(" ");
         if (!checkExpression()) return -1f;
         num1 = Integer.parseInt(mathExpressions[0]);
         mathSign = mathExpressions[1];
@@ -46,14 +44,14 @@ public class Calculator {
         return !isNonChecked;
     }
 
-    private static boolean checkValidSign(String Sign) {
-        boolean isNonChecked = !(Sign.equals("+") ||
-                Sign.equals("-") ||
-                Sign.equals("*") ||
-                Sign.equals("/") ||
-                Sign.equals("^") ||
-                Sign.equals("%"));
-        if (isNonChecked) System.out.println("Ошибка в знаке операции [" + Sign + "]");
+    private static boolean checkValidSign(String sign) {
+        boolean isNonChecked = !(sign.equals("+") ||
+                sign.equals("-") ||
+                sign.equals("*") ||
+                sign.equals("/") ||
+                sign.equals("^") ||
+                sign.equals("%"));
+        if (isNonChecked) System.out.println("Ошибка в знаке операции [" + sign + "]");
         return !isNonChecked;
     }
 }

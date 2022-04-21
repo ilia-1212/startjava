@@ -23,7 +23,7 @@ public class CalculatorTest {
         scanner.close();
     }
 
-    private static boolean checkAnswer(String Answer) {
-        return !(playerAnswer = Answer).equals("yes") && !playerAnswer.equals("no");
+    private static boolean checkAnswer(String answer) {
+        return !(playerAnswer = answer).equals("yes") && !playerAnswer.equals("no");
     }
 }
