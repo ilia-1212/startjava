@@ -21,28 +21,28 @@ public class BookShellMain {
         System.out.println("    1. добавить");
         System.out.println("    2. удалить");
         System.out.println("    3. найти");
-        System.out.println("    4. показать все книги");
-        System.out.println("    5. показать свободное место");
+        System.out.println("    4. показать информацию по всем книгам");
+        System.out.println("    5. показать количество свободного места");
         System.out.println("    6. выход");
         System.out.println(">>>Menu<<<");
     }
 
-    private static boolean checkMenu(String itemMenu) {
-        boolean result = ((userAnswer = itemMenu).equals("1") ||
+    private static boolean checkMenu(String menuItem) {
+        boolean result = ((userAnswer = menuItem).equals("1") ||
                 userAnswer.equals("2") ||
                 userAnswer.equals("3") ||
                 userAnswer.equals("4") ||
                 userAnswer.equals("5") ||
                 userAnswer.equals("6"));
         if (result) {
-            process(userAnswer);
+            runSelectedItem(userAnswer);
         } else System.out.println("только цифры 1-6");
 
         return result;
     }
 
-    private static void process(String itemMenu) {
-        switch (itemMenu) {
+    private static void runSelectedItem(String menuItem) {
+        switch (menuItem) {
             case "1" -> {
                 System.out.print("введите через пробел параметры книги (автор, название, год издания): ");
                 BookShell.addBook(scanner.nextLine());
@@ -55,9 +55,10 @@ public class BookShellMain {
                 System.out.print("введите через пробел параметры книги (автор, название, год издания): ");
                 BookShell.findBook(scanner.nextLine());
             }
-            case "4" -> BookShell.showTotalAmountBooks();
+            case "4" -> BookShell.showInfoAllBooks();
             case "5" -> BookShell.showFreeSpaces();
             default -> System.out.println("выходим...");
         };
+        System.out.print("\n");
     }
 }

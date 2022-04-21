@@ -37,6 +37,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return ("<" + this.author + ", " + this.title + ", " + this.yearPublish + ">");
+        return ("<" + author + ", " + title + ", " + yearPublish + ">");
     }
 }
