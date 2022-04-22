@@ -3,16 +3,15 @@ package com.startjava.lesson_final.books;
 import java.util.Scanner;
 
 public class BookShellMain {
-    private static String userAnswer = "";
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        while (!userAnswer.equals("6")) {
+        String userAnswer = "";
+        BookShell bookShell = new BookShell(10);
             do {
-                BookShell.showShell();
+                bookShell.showShell();
                 showMenu();
-            } while (!checkMenu(scanner.nextLine()));
-        }
+            } while (checkMenu((userAnswer = scanner.nextLine()), bookShell) && !userAnswer.equals("6"));
         scanner.close();
     }
 
@@ -27,38 +26,33 @@ public class BookShellMain {
         System.out.println(">>>Menu<<<");
     }
 
-    private static boolean checkMenu(String menuItem) {
-        boolean result = ((userAnswer = menuItem).equals("1") ||
-                userAnswer.equals("2") ||
-                userAnswer.equals("3") ||
-                userAnswer.equals("4") ||
-                userAnswer.equals("5") ||
-                userAnswer.equals("6"));
-        if (result) {
-            runSelectedItem(userAnswer);
-        } else System.out.println("только цифры 1-6");
+    private static boolean checkMenu(String menuItem, BookShell bookShell) {
+        boolean result = (menuItem.equals("1") ||
+                menuItem.equals("2") ||
+                menuItem.equals("3") ||
+                menuItem.equals("4") ||
+                menuItem.equals("5") ||
+                menuItem.equals("6"));
 
+            switch (menuItem) {
+                case "1" -> {
+                    System.out.print("введите через пробел параметры книги (автор, название, год издания): ");
+                    bookShell.addBook(scanner.nextLine());
+                }
+                case "2" -> {
+                    System.out.print("введите через пробел параметры книги (автор, название, год издания): ");
+                    bookShell.delBook(scanner.nextLine());
+                }
+                case "3" -> {
+                    System.out.print("введите через пробел параметры книги (автор, название, год издания): ");
+                    bookShell.findBook(scanner.nextLine());
+                }
+                case "4" -> bookShell.showInfoAllBooks();
+                case "5" -> bookShell.showFreeSpaces();
+                case "6" -> System.out.println("Выходим...");
+                default -> System.out.println("Неверный выбор, используйте только цифры 1-6");
+            };
+            System.out.print("\n");
         return result;
-    }
-
-    private static void runSelectedItem(String menuItem) {
-        switch (menuItem) {
-            case "1" -> {
-                System.out.print("введите через пробел параметры книги (автор, название, год издания): ");
-                BookShell.addBook(scanner.nextLine());
-            }
-            case "2" -> {
-                System.out.print("введите через пробел параметры книги (автор, название, год издания): ");
-                BookShell.delBook(scanner.nextLine());
-            }
-            case "3" -> {
-                System.out.print("введите через пробел параметры книги (автор, название, год издания): ");
-                BookShell.findBook(scanner.nextLine());
-            }
-            case "4" -> BookShell.showInfoAllBooks();
-            case "5" -> BookShell.showFreeSpaces();
-            default -> System.out.println("выходим...");
-        };
-        System.out.print("\n");
     }
 }

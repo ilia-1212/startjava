@@ -1,10 +1,14 @@
 package com.startjava.lesson_final.books;
 
 public class BookShell {
-    private static int amountBooks;
-    private static Book[] books = new Book[10];
+    private int amountBooks;
+    private Book[] books;
 
-    public static void addBook(String bookInfo) {
+    public BookShell(int amountBooks) {
+        books = new Book[amountBooks];
+    }
+
+    public void addBook(String bookInfo) {
         int index = findBookIndex(bookInfo);
         if (index == -1) {
             String[] bookRecord = bookInfo.split(" ");
@@ -13,7 +17,7 @@ public class BookShell {
         } else System.out.println("Книга с таким автором ,названием и годом печати уже есть");
     }
 
-    public static void delBook(String bookInfo) {
+    public void delBook(String bookInfo) {
         int index = findBookIndex(bookInfo);
         if (index != -1) {
             books[index] = null;
@@ -22,30 +26,30 @@ public class BookShell {
         } else System.out.println("Книга с таким автором ,названием и годом печати не найдена или уже удалена");
     }
 
-    public static void findBook(String bookInfo) {
+    public void findBook(String bookInfo) {
         int index = findBookIndex(bookInfo);
         if (index == -1) System.out.println("Книга с таким автором ,названием и годом печати не найдена");
         else System.out.println("Книга с таким автором ,названием и годом печати найдена, лежит в ячейке: " + (index + 1));
     }
 
-    public static void showInfoAllBooks() {
+    public void showInfoAllBooks() {
         System.out.println("Всего книг: " + amountBooks);
-        for(int i = 0; i < books.length; i++) {
-            if (books[i] != null) {
-                System.out.println(books[i].toString());
+        for(Book book : books) {
+            if (book != null) {
+                System.out.println(book);
             }
         }
     }
 
-    public static void showFreeSpaces() {
+    public void showFreeSpaces() {
         System.out.println("Всего пустых ячеек: " + (books.length - amountBooks));
     }
 
-    public static void showShell() {
+    public void showShell() {
         String result = "";
         System.out.println("Книжная полка");
-        for (int i = 0; i < books.length; i++) {
-            if (books[i] == null) {
+        for (Book book : books) {
+            if (book == null) {
                 result = "[]";
             } else {
                 result = "[K]";
@@ -55,7 +59,7 @@ public class BookShell {
         System.out.print("\n");
     }
 
-    private static int findBookIndex(String bookInfo) {
+    private int findBookIndex(String bookInfo) {
         String[] bookData = bookInfo.split(" ");
         for(int i = 0; i < books.length; i++) {
             if (books[i] != null && (books[i].getAuthor()).equals(bookData[0]) && (books[i].getTitle()).equals(bookData[1]) && (books[i].getYearPublish()).equals(bookData[2])) return i;
