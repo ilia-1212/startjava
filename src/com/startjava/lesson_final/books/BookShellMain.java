@@ -8,10 +8,11 @@ public class BookShellMain {
     public static void main(String[] args) {
         String userAnswer = "";
         BookShell bookShell = new BookShell(10);
-            do {
-                bookShell.showShell();
-                showMenu();
-            } while (checkMenu((userAnswer = scanner.nextLine()), bookShell) && !userAnswer.equals("6"));
+        do {
+            bookShell.showShell();
+            showMenu();
+            userAnswer = scanner.nextLine();
+        } while (checkMenu(userAnswer, bookShell) && !userAnswer.equals("6"));
         scanner.close();
     }
 
@@ -27,13 +28,7 @@ public class BookShellMain {
     }
 
     private static boolean checkMenu(String menuItem, BookShell bookShell) {
-        boolean result = (menuItem.equals("1") ||
-                menuItem.equals("2") ||
-                menuItem.equals("3") ||
-                menuItem.equals("4") ||
-                menuItem.equals("5") ||
-                menuItem.equals("6"));
-
+        boolean result = true;
             switch (menuItem) {
                 case "1" -> {
                     System.out.print("введите через пробел параметры книги (автор, название, год издания): ");
@@ -50,7 +45,7 @@ public class BookShellMain {
                 case "4" -> bookShell.showInfoAllBooks();
                 case "5" -> bookShell.showFreeSpaces();
                 case "6" -> System.out.println("Выходим...");
-                default -> System.out.println("Неверный выбор, используйте только цифры 1-6");
+                default -> result = false;
             };
             System.out.print("\n");
         return result;
