@@ -12,7 +12,7 @@ public class BookShellMain {
             bookShell.showShell();
             showMenu();
             userAnswer = scanner.nextLine();
-        } while (checkMenu(userAnswer, bookShell) && !userAnswer.equals("6"));
+        } while (checkMenu(userAnswer, bookShell));
         scanner.close();
     }
 
@@ -29,25 +29,25 @@ public class BookShellMain {
 
     private static boolean checkMenu(String menuItem, BookShell bookShell) {
         boolean result = true;
-            switch (menuItem) {
-                case "1" -> {
-                    System.out.print("введите через пробел параметры книги (автор, название, год издания): ");
-                    bookShell.addBook(scanner.nextLine());
-                }
-                case "2" -> {
-                    System.out.print("введите через пробел параметры книги (автор, название, год издания): ");
-                    bookShell.delBook(scanner.nextLine());
-                }
-                case "3" -> {
-                    System.out.print("введите через пробел параметры книги (автор, название, год издания): ");
-                    bookShell.findBook(scanner.nextLine());
-                }
-                case "4" -> bookShell.showInfoAllBooks();
-                case "5" -> bookShell.showFreeSpaces();
-                case "6" -> System.out.println("Выходим...");
-                default -> result = false;
-            };
-            System.out.print("\n");
-        return result;
+        switch (menuItem) {
+            case "1" -> {
+                System.out.print("введите через пробел параметры книги (автор, название, год издания): ");
+                bookShell.addBook(scanner.nextLine());
+            }
+            case "2" -> {
+                System.out.print("введите через пробел параметры книги (автор, название, год издания): ");
+                bookShell.delBook(scanner.nextLine());
+            }
+            case "3" -> {
+                System.out.print("введите через пробел параметры книги (автор, название, год издания): ");
+                bookShell.findBook(scanner.nextLine());
+            }
+            case "4" -> bookShell.showInfoAllBooks();
+            case "5" -> bookShell.showFreeSpaces();
+            case "6" -> result = false;
+            default -> System.out.println("введите только цифры 1-6");
+        };
+        System.out.print("\n");
+    return result;
     }
 }
