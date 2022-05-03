@@ -1,9 +1,9 @@
-select * from jaegers;
-select * from jaegers where status != 'Destroyed';
-select * from jaegers where mark in ('Mark-1', 'Mark-5');
-select * from jaegers where mark in ('Mark-1', 'Mark-5') order by mark desc;
-select * from jaegers where launch in (select min(launch) from jaegers);
-select * from jaegers where kaijuKill in (select min(kaijuKill) from jaegers union select max(kaijuKill) from jaegers);
-select avg(weight) from jaegers;
-update jaegers set kaijuKill = kaijuKill + 1 where status != 'Destroyed';
-delete from jaegers where status = 'Destroyed';
+SELECT * FROM jaegers;
+SELECT * FROM jaegers WHERE status != 'Destroyed';
+SELECT * FROM jaegers WHERE mark in ('Mark-1', 'Mark-5');
+SELECT * FROM jaegers WHERE mark in ('Mark-1', 'Mark-5') ORDER BY mark DESC;
+SELECT * FROM jaegers WHERE launch in (SELECT min(launch) FROM jaegers);
+SELECT * FROM jaegers WHERE kaijuKill in (SELECT min(kaijuKill) FROM jaegers UNION SELECT max(kaijuKill) FROM jaegers);
+SELECT avg(weight) FROM jaegers;
+UPDATE jaegers SET kaijuKill = kaijuKill + 1 WHERE status != 'Destroyed';
+DELETE FROM jaegers WHERE status = 'Destroyed';
